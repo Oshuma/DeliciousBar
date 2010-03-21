@@ -13,6 +13,7 @@ extern NSString *const DeliciousUserKey;
 @interface PreferenceController : NSWindowController {
   NSUserDefaults *preferences;
   IBOutlet NSTextField *usernameField;
+  IBOutlet NSTextField *passwordField;
 }
 
 - (IBAction)closeWindow:(id)sender;

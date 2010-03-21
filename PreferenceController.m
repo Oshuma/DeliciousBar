@@ -9,6 +9,7 @@
 #import "PreferenceController.h"
 
 NSString *const DeliciousUserKey = @"DeliciousUsername";
+NSString *const DeliciousPasswordKey = @"DeliciousPassword";
 
 @implementation PreferenceController
 
@@ -22,8 +23,9 @@ NSString *const DeliciousUserKey = @"DeliciousUsername";
 - (void)windowDidLoad
 {
   NSString *username = [preferences objectForKey:DeliciousUserKey];
+  NSString *password = [preferences objectForKey:DeliciousPasswordKey];
   if (username) [usernameField setStringValue:username];
-  NSLog(@"Preferences nib loaded.");
+  if (password) [passwordField setStringValue:password];
 }
 
 - (IBAction)closeWindow:(id)sender
@@ -35,8 +37,11 @@ NSString *const DeliciousUserKey = @"DeliciousUsername";
 - (IBAction)savePreferences:(id)sender
 {
   NSString *username = [usernameField stringValue];
+  NSString *password = [passwordField stringValue];
   NSLog(@"Saving Username: %@", username);
+  NSLog(@"Saving Password: %@", password);
   [preferences setObject:username forKey:DeliciousUserKey];
+  [preferences setObject:password forKey:DeliciousPasswordKey];
   [self close];
 }
 

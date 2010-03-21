@@ -43,13 +43,13 @@
 {
   NSString *username = [[NSUserDefaults standardUserDefaults]
                         objectForKey:DeliciousUserKey];
-  if (username) {
+  if (username && ([username length] != 0)) {
     NSURL *url = [NSURL URLWithString:
                  [NSString stringWithFormat:@"http://delicious.com/%@", username]];
     [[NSWorkspace sharedWorkspace] openURL:url];
     [username release];
   } else {
-    NSLog(@"Username not set.");
+    NSLog(@"Username not set; switching to prefs panel.");
     [self showPreferencePanel:self];
   }
 }

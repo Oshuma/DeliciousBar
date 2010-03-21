@@ -16,22 +16,28 @@
   if (![super initWithWindowNibName:@"Bookmarks"]) return nil;
   if (!preferences) preferences = [NSUserDefaults standardUserDefaults];
 
-  user = [[DeliciousUser init] alloc];
-  [user setUsername:@"Oshuma"];
-  [user setPassword:@"b0ng"];
-
+  NSString *username = [preferences objectForKey:DeliciousUserKey];
+  NSString *password = [preferences objectForKey:DeliciousPasswordKey];
+  user = [[DeliciousUser alloc] initWithUsername:username];
+  [user setPassword:password];
+  
   return self;
 }
 
 - (void)windowDidLoad
 {
-  NSLog(@"%@: windowDidLoad:", self);
-  [user syncBookmarks];
+  if ([user syncBookmarks]) {
+    NSLog(@"%@: sync success", self);
+  } else {
+    NSLog(@"%@: sync failed", self);
+  }
 }
 
 - (IBAction)cancelOrFinish:(id)sender
 {
   NSLog(@"cancelOrFinish:");
+  [preferences release];
+  [user release];
   [self close];
 }
 

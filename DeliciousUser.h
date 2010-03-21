@@ -11,11 +11,14 @@
 @interface DeliciousUser : NSObject {
   NSString *username;
   NSString *password;
+  NSString *baseURL;
 }
 
 @property (readwrite, assign) NSString *username;
 @property (readwrite, assign) NSString *password;
+@property (readwrite, assign) NSString *baseURL;
 
+- (id)initWithUsername:(NSString *)username;
 - (BOOL)syncBookmarks;
 
 @end

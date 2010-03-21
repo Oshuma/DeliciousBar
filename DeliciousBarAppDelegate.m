@@ -42,6 +42,7 @@
 
 - (IBAction)openWebsite:(id)sender
 {
+  // TODO: Move this to DeliciousUser.
   NSString *username = [[NSUserDefaults standardUserDefaults]
                         objectForKey:DeliciousUserKey];
   if (username && ([username length] != 0)) {

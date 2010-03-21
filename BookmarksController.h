@@ -11,6 +11,7 @@
 @class DeliciousUser;
 
 extern NSString *const DeliciousUserKey;
+extern NSString *const DeliciousPasswordKey;
 
 @interface BookmarksController : NSWindowController {
   NSUserDefaults *preferences;

@@ -37,8 +37,6 @@ NSString *const DeliciousPasswordKey = @"DeliciousPassword";
 {
   NSString *username = [usernameField stringValue];
   NSString *password = [passwordField stringValue];
-  NSLog(@"Saving Username: %@", username);
-  NSLog(@"Saving Password: %@", password);
   [preferences setObject:username forKey:DeliciousUserKey];
   [preferences setObject:password forKey:DeliciousPasswordKey];
   [self close];

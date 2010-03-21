@@ -14,17 +14,6 @@
 
 @synthesize window;
 
-+ (void)initialize
-{
-  // Setup defaults here:
-//  NSMutableDictionary *preferences = [NSMutableDictionary dictionary];
-//  [preferences setObject:@"Oshuma" forKey:DeliciousUserKey];
-//  
-//  // Register the defaults.
-//  [[NSUserDefaults standardUserDefaults] registerDefaults:preferences];
-//  NSLog(@"Preferences loaded: %@", preferences);
-}
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
   NSLog(@"App launched.");
@@ -67,10 +56,7 @@
 
 - (IBAction)syncBookmarks:(id)sender
 {
-  if (!bookmarks) {
-    bookmarks = [[BookmarksController alloc] init];
-  }
-  [bookmarks showWindow:self];
+  [[[BookmarksController alloc] init] showWindow:self];
 }
 
 - (IBAction)quitApplication:(id)sender

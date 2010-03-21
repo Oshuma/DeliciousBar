@@ -13,7 +13,6 @@
 @interface DeliciousBarAppDelegate : NSObject {
   NSWindow *window;
   PreferenceController *preferences;
-  BookmarksController *bookmarks;
 
   IBOutlet NSMenu *statusMenu;
   NSStatusItem *statusItem;

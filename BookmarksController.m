@@ -16,26 +16,31 @@
   if (![super initWithWindowNibName:@"Bookmarks"]) return nil;
   if (!preferences) preferences = [NSUserDefaults standardUserDefaults];
 
-  NSString *username = [preferences objectForKey:DeliciousUserKey];
-  NSString *password = [preferences objectForKey:DeliciousPasswordKey];
-  user = [[DeliciousUser alloc] initWithUsername:username];
-  [user setPassword:password];
-  
+  user = [[DeliciousUser alloc]
+          initWithUsername:[preferences objectForKey:DeliciousUserKey]
+          andPassword:[preferences objectForKey:DeliciousPasswordKey]];
+
   return self;
 }
 
 - (void)windowDidLoad
 {
+  [progressBar startAnimation:self];
   if ([user syncBookmarks]) {
-    NSLog(@"%@: sync success", self);
+    NSLog(@"%@: SYNC OK", self);
+    [cancelButton setTitle:@"Finished"];
   } else {
-    NSLog(@"%@: sync failed", self);
+    NSLog(@"%@: SYNC FAIL", self);
+    // TODO: Maybe an alert here.
+    [cancelButton setTitle:@"Failed"];
   }
+  [progressBar stopAnimation:self];
 }
 
 - (IBAction)cancelOrFinish:(id)sender
 {
   NSLog(@"cancelOrFinish:");
+  [progressBar stopAnimation:self];
   [preferences release];
   [user release];
   [self close];

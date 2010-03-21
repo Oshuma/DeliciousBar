@@ -18,7 +18,7 @@
 @property (readwrite, assign) NSString *password;
 @property (readwrite, assign) NSString *baseURL;
 
-- (id)initWithUsername:(NSString *)username;
+- (id)initWithUsername:(NSString *)theUsername andPassword:(NSString *)thePassword;
 - (BOOL)syncBookmarks;
 
 @end

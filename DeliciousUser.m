@@ -14,19 +14,22 @@
 @synthesize password;
 @synthesize baseURL;
 
-- (id)initWithUsername:(NSString *)newUsername
+- (id)initWithUsername:(NSString *)theUsername andPassword:(NSString *)thePassword
 {
-  if (![super init]) {
-    [self release];
-    return nil;
-  }
-
-  if ([newUsername length] == 0) {
+  if (![self init]) {
     [self release];
     return nil;
   }
   
-  [self setUsername:newUsername];
+  if (([theUsername length] == 0) || ([thePassword length] == 0)) {
+    [self release];
+    return nil;
+  }
+  
+  [self setUsername:theUsername];
+  [self setPassword:thePassword];
+  [self setBaseURL:[NSString stringWithFormat:@"https://%@:%@@api.del.icio.us/v1",
+                    username, password]];
   return self;
 }
 
@@ -40,18 +43,19 @@
 
 - (BOOL)syncBookmarks
 {
-  NSString *urlString = [NSString stringWithFormat:@"https://%@:%@@api.del.icio.us/v1/tags/get",
-                         username, password];
-  NSURL *url = [NSURL URLWithString:urlString];
   NSError *err = nil;
-//  NSXMLDocument *tags = [[NSXMLDocument alloc]
-//                         initWithXMLString:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?><tags><tag>awesome</tag></tags>"
-//                         options:0
-//                         error:&err];
+  NSURL *url = [NSURL URLWithString:[NSString
+                                     stringWithFormat:@"%@/tags/get", baseURL]];
+
   NSXMLDocument *tags = [[NSXMLDocument alloc]
-                         initWithContentsOfURL:url
+                         initWithXMLString:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?><tags><tag count=\"4\">awesome</tag><tag count=\"20\">weed</tag></tags>"
                          options:0
                          error:&err];
+//  NSXMLDocument *tags = [[NSXMLDocument alloc]
+//                         initWithContentsOfURL:url
+//                         options:0
+//                         error:&err];
+  NSLog(@"URL: %@", url);
   NSLog(@"TAGS: %@", tags);
   return true;
 }

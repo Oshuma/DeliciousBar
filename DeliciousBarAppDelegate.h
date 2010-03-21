@@ -7,11 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+@class BookmarksController;
 @class PreferenceController;
 
 @interface DeliciousBarAppDelegate : NSObject {
   NSWindow *window;
   PreferenceController *preferences;
+  BookmarksController *bookmarks;
 
   IBOutlet NSMenu *statusMenu;
   NSStatusItem *statusItem;

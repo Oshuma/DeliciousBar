@@ -13,6 +13,8 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		9A26756A11559B92007799CD /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A26756911559B92007799CD /* PreferenceController.m */; };
 		9A2675A11155A790007799CD /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2675A01155A790007799CD /* Preferences.xib */; };
+		9A2677FF1155E47A007799CD /* BookmarksController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2677FE1155E47A007799CD /* BookmarksController.m */; };
+		9A26781A1155E6AA007799CD /* Bookmarks.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2678191155E6AA007799CD /* Bookmarks.xib */; };
 		9A60429311558A0400C2C9E1 /* DeliciousBarAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A60429211558A0400C2C9E1 /* DeliciousBarAppDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,9 @@
 		9A26756811559B92007799CD /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
 		9A26756911559B92007799CD /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
 		9A2675A01155A790007799CD /* Preferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Preferences.xib; sourceTree = "<group>"; };
+		9A2677FD1155E47A007799CD /* BookmarksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarksController.h; sourceTree = "<group>"; };
+		9A2677FE1155E47A007799CD /* BookmarksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarksController.m; sourceTree = "<group>"; };
+		9A2678191155E6AA007799CD /* Bookmarks.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Bookmarks.xib; sourceTree = "<group>"; };
 		9A60429111558A0400C2C9E1 /* DeliciousBarAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliciousBarAppDelegate.h; sourceTree = "<group>"; };
 		9A60429211558A0400C2C9E1 /* DeliciousBarAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliciousBarAppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,6 +58,8 @@
 				9A60429211558A0400C2C9E1 /* DeliciousBarAppDelegate.m */,
 				9A26756811559B92007799CD /* PreferenceController.h */,
 				9A26756911559B92007799CD /* PreferenceController.m */,
+				9A2677FD1155E47A007799CD /* BookmarksController.h */,
+				9A2677FE1155E47A007799CD /* BookmarksController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -111,6 +118,7 @@
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 				9A2675A01155A790007799CD /* Preferences.xib */,
+				9A2678191155E6AA007799CD /* Bookmarks.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -170,6 +178,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				9A2675A11155A790007799CD /* Preferences.xib in Resources */,
+				9A26781A1155E6AA007799CD /* Bookmarks.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +192,7 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				9A60429311558A0400C2C9E1 /* DeliciousBarAppDelegate.m in Sources */,
 				9A26756A11559B92007799CD /* PreferenceController.m in Sources */,
+				9A2677FF1155E47A007799CD /* BookmarksController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

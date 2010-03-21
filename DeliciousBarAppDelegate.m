@@ -8,6 +8,7 @@
 
 #import "DeliciousBarAppDelegate.h"
 #import "PreferenceController.h"
+#import "BookmarksController.h"
 
 @implementation DeliciousBarAppDelegate
 
@@ -65,6 +66,10 @@
 
 - (IBAction)syncBookmarks:(id)sender
 {
+  if (!bookmarks) {
+    bookmarks = [[BookmarksController alloc] init];
+  }
+  [bookmarks showWindow:self];
 }
 
 - (IBAction)quitApplication:(id)sender

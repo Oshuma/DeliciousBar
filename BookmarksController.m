@@ -7,7 +7,7 @@
 //
 
 #import "BookmarksController.h"
-
+#import "DeliciousUser.h"
 
 @implementation BookmarksController
 
@@ -15,14 +15,18 @@
 {
   if (![super initWithWindowNibName:@"Bookmarks"]) return nil;
   if (!preferences) preferences = [NSUserDefaults standardUserDefaults];
+
+  user = [[DeliciousUser init] alloc];
+  [user setUsername:@"Oshuma"];
+  [user setPassword:@"b0ng"];
+
   return self;
 }
 
 - (void)windowDidLoad
 {
-  NSLog(@"Syncing bookmarks...");
-  // DeliciousUser *user = ;[DeliciousUser init] alloc];
-  // [user syncBookmarks];
+  NSLog(@"%@: windowDidLoad:", self);
+  [user syncBookmarks];
 }
 
 - (IBAction)cancelOrFinish:(id)sender

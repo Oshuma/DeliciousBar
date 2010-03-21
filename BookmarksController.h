@@ -8,10 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class DeliciousUser;
+
 extern NSString *const DeliciousUserKey;
 
 @interface BookmarksController : NSWindowController {
   NSUserDefaults *preferences;
+  DeliciousUser *user;
 }
 
 - (IBAction)cancelOrFinish:(id)sender;

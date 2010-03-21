@@ -57,10 +57,10 @@
 // FIXME: Sometimes it doesn't focus the window.
 - (IBAction)showPreferencePanel:(id)sender
 {
-  if (!preferenceController) {
-    preferenceController = [[PreferenceController alloc] init];
+  if (!preferences) {
+    preferences = [[PreferenceController alloc] init];
   }
-  [preferenceController showWindow:self];
+  [preferences showWindow:self];
 }
 
 - (IBAction)syncBookmarks:(id)sender

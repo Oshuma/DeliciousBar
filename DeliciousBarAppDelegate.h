@@ -7,18 +7,22 @@
 //
 
 #import <Cocoa/Cocoa.h>
-@class BookmarksController;
-@class PreferenceController;
+
+@class DeliciousUser;
 
 @interface DeliciousBarAppDelegate : NSObject {
   NSWindow *window;
-  PreferenceController *preferences;
 
   IBOutlet NSMenu *statusMenu;
   NSStatusItem *statusItem;
+
+  NSUserDefaults *preferences;
+  DeliciousUser *user;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (readwrite, assign) NSUserDefaults *preferences;
+@property (readwrite, assign) DeliciousUser *user;
 
 - (IBAction)openWebsite:(id)sender;
 - (IBAction)showPreferencePanel:(id)sender;

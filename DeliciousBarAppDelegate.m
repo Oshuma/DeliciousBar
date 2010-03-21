@@ -9,10 +9,35 @@
 #import "DeliciousBarAppDelegate.h"
 #import "PreferenceController.h"
 #import "BookmarksController.h"
+#import "DeliciousUser.h"
 
 @implementation DeliciousBarAppDelegate
 
 @synthesize window;
+@synthesize user;
+@synthesize preferences;
+
+- (id)init
+{
+  if (![super init]) {
+    [self release];
+    return nil;
+  }
+
+  if (!preferences) preferences = [NSUserDefaults standardUserDefaults];
+  user = [[DeliciousUser alloc]
+          initWithUsername:[preferences objectForKey:DeliciousUserKey]
+          andPassword:[preferences objectForKey:DeliciousPasswordKey]];
+
+  return self;
+}
+
+- (void)dealloc
+{
+  [preferences release];
+  [user release];
+  [super dealloc];
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -31,14 +56,8 @@
 
 - (IBAction)openWebsite:(id)sender
 {
-  // TODO: Move this to DeliciousUser.
-  NSString *username = [[NSUserDefaults standardUserDefaults]
-                        objectForKey:DeliciousUserKey];
-  if (username && ([username length] != 0)) {
-    NSURL *url = [NSURL URLWithString:
-                 [NSString stringWithFormat:@"http://delicious.com/%@", username]];
-    [[NSWorkspace sharedWorkspace] openURL:url];
-    [username release];
+  if (user) {
+    [[NSWorkspace sharedWorkspace] openURL:[user website]];
   } else {
     NSLog(@"Username not set; switching to prefs panel.");
     [self showPreferencePanel:self];
@@ -48,10 +67,7 @@
 // FIXME: Sometimes it doesn't focus the window.
 - (IBAction)showPreferencePanel:(id)sender
 {
-  if (!preferences) {
-    preferences = [[PreferenceController alloc] init];
-  }
-  [preferences showWindow:self];
+  [[[PreferenceController alloc] init] showWindow:self];
 }
 
 - (IBAction)syncBookmarks:(id)sender

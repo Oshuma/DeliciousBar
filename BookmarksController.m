@@ -20,6 +20,9 @@
 
 - (void)windowDidLoad
 {
+  NSLog(@"Syncing bookmarks...");
+  // DeliciousUser *user = ;[DeliciousUser init] alloc];
+  // [user syncBookmarks];
 }
 
 - (IBAction)cancelOrFinish:(id)sender

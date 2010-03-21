@@ -30,7 +30,6 @@ NSString *const DeliciousPasswordKey = @"DeliciousPassword";
 
 - (IBAction)closeWindow:(id)sender
 {
-  NSLog(@"Closing prefs window.");
   [self close];
 }
 

@@ -54,12 +54,17 @@
   }
 }
 
+// FIXME: Sometimes it doesn't focus the window.
 - (IBAction)showPreferencePanel:(id)sender
 {
   if (!preferenceController) {
     preferenceController = [[PreferenceController alloc] init];
   }
   [preferenceController showWindow:self];
+}
+
+- (IBAction)syncBookmarks:(id)sender
+{
 }
 
 - (IBAction)quitApplication:(id)sender

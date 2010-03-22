@@ -73,6 +73,7 @@
 
 - (void)fetchTags
 {
+//  [self sendRequest:@"/tags/get"];
   NSError *err = nil;
 
   // DEBUG
@@ -85,12 +86,26 @@
                             initWithContentsOfURL:tagsURL
                             options:0
                             error:&err];
+
   tags = [[tagsDoc rootElement] elementsForName:@"tag"];
 }
 
 - (void)fetchBookmarks
 {
-  NSLog(@"TAGS: %@", tags);
+  if (!tags) [self fetchTags];
+//  [self sendRequest:@"/posts/all"];
+  NSError *err = nil;
+  
+  // DEBUG
+  NSURL *postsURL = [NSURL fileURLWithPath:@"/Users/oshuma/Projects/DeliciousBar/doc/posts_all.xml"];
+
+//  NSURL *postsURL = [NSURL URLWithString:[NSString
+//                                          stringWithFormat:@"%@/posts/all", baseURL]];
+
+  NSXMLDocument *posts = [[NSXMLDocument alloc]
+                          initWithContentsOfURL:postsURL
+                          options:0
+                          error:&err];
 }
 
 @end

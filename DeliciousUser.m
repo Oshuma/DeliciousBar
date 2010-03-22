@@ -84,7 +84,6 @@
           initWithContentsOfURL:tagsURL
           options:0
           error:&err];
-  NSLog(@"URL: %@", tagsURL);
 }
 
 @end

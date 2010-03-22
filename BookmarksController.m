@@ -17,8 +17,8 @@
   if (!preferences) preferences = [NSUserDefaults standardUserDefaults];
 
   user = [[DeliciousUser alloc]
-          initWithUsername:[preferences objectForKey:DeliciousUserKey]
-          andPassword:[preferences objectForKey:DeliciousPasswordKey]];
+          initWithUsername:[preferences objectForKey:DBUserPrefKey]
+          andPassword:[preferences objectForKey:DBPasswordPrefKey]];
 
   return self;
 }

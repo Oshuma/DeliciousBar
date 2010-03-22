@@ -26,8 +26,8 @@
 
   if (!preferences) preferences = [NSUserDefaults standardUserDefaults];
   user = [[DeliciousUser alloc]
-          initWithUsername:[preferences objectForKey:DeliciousUserKey]
-          andPassword:[preferences objectForKey:DeliciousPasswordKey]];
+          initWithUsername:[preferences objectForKey:DBUserPrefKey]
+          andPassword:[preferences objectForKey:DBPasswordPrefKey]];
 
   return self;
 }
@@ -41,6 +41,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+  if ([user syncBookmarks]) {
+    NSLog(@"Sync on launch: OK");
+  } else {
+    NSLog(@"Sync on launch: FAIL");
+  }
   NSLog(@"App launched.");
 }
 
@@ -52,6 +57,8 @@
   // TODO: Can probably set these in Interface Builder.
   [statusItem setTitle:@"Delicious"];
   [statusItem setHighlightMode:YES];
+//  [statusItem setImage:imageObject];
+//  [statusItem setAlternateImage:otherImageObject];
 }
 
 - (IBAction)openWebsite:(id)sender
@@ -64,7 +71,6 @@
   }
 }
 
-// FIXME: Sometimes it doesn't focus the window.
 - (IBAction)showPreferencePanel:(id)sender
 {
   [[[PreferenceController alloc] init] showWindow:self];

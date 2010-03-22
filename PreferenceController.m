@@ -8,8 +8,8 @@
 
 #import "PreferenceController.h"
 
-NSString *const DeliciousUserKey = @"DeliciousUsername";
-NSString *const DeliciousPasswordKey = @"DeliciousPassword";
+NSString *const DBUserPrefKey = @"DeliciousUsername";
+NSString *const DBPasswordPrefKey = @"DeliciousPassword";
 
 @implementation PreferenceController
 
@@ -22,8 +22,8 @@ NSString *const DeliciousPasswordKey = @"DeliciousPassword";
 
 - (void)windowDidLoad
 {
-  NSString *username = [preferences objectForKey:DeliciousUserKey];
-  NSString *password = [preferences objectForKey:DeliciousPasswordKey];
+  NSString *username = [preferences objectForKey:DBUserPrefKey];
+  NSString *password = [preferences objectForKey:DBPasswordPrefKey];
   if (username) [usernameField setStringValue:username];
   if (password) [passwordField setStringValue:password];
 }
@@ -37,8 +37,8 @@ NSString *const DeliciousPasswordKey = @"DeliciousPassword";
 {
   NSString *username = [usernameField stringValue];
   NSString *password = [passwordField stringValue];
-  [preferences setObject:username forKey:DeliciousUserKey];
-  [preferences setObject:password forKey:DeliciousPasswordKey];
+  [preferences setObject:username forKey:DBUserPrefKey];
+  [preferences setObject:password forKey:DBPasswordPrefKey];
   [self close];
 }
 

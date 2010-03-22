@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-extern NSString *const DeliciousUserKey;
+extern NSString *const DBUserPrefKey;
 
 @interface PreferenceController : NSWindowController {
   NSUserDefaults *preferences;

@@ -10,8 +10,8 @@
 
 @class DeliciousUser;
 
-extern NSString *const DeliciousUserKey;
-extern NSString *const DeliciousPasswordKey;
+extern NSString *const DBUserPrefKey;
+extern NSString *const DBPasswordPrefKey;
 
 @interface BookmarksController : NSWindowController {
   IBOutlet NSButton *cancelButton;

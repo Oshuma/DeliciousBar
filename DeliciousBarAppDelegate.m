@@ -17,6 +17,8 @@
 @synthesize user;
 @synthesize preferences;
 
+#pragma mark factory
+
 - (id)init
 {
   if (![super init]) {
@@ -48,6 +50,8 @@
   }
   NSLog(@"App launched.");
 }
+
+#pragma mark UI
 
 - (void)awakeFromNib
 {

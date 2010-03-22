@@ -13,12 +13,16 @@ NSString *const DBPasswordPrefKey = @"DeliciousPassword";
 
 @implementation PreferenceController
 
+#pragma mark factory
+
 - (id)init
 {
   if (![super initWithWindowNibName:@"Preferences"]) return nil;
   if (!preferences) preferences = [NSUserDefaults standardUserDefaults];
   return self;
 }
+
+#pragma mark UI
 
 - (void)windowDidLoad
 {

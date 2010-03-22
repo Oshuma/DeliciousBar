@@ -16,6 +16,8 @@
 @synthesize website;
 @synthesize tags;
 
+#pragma mark factory
+
 - (id)initWithUsername:(NSString *)theUsername andPassword:(NSString *)thePassword
 {
   if (![self init]) {
@@ -47,6 +49,8 @@
   [website release];
   [super dealloc];
 }
+
+#pragma mark public
 
 - (BOOL)syncBookmarks
 {

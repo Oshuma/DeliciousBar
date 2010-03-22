@@ -11,6 +11,8 @@
 
 @implementation BookmarksController
 
+#pragma mark factory
+
 - (id)init
 {
   if (![super initWithWindowNibName:@"Bookmarks"]) return nil;
@@ -22,6 +24,8 @@
 
   return self;
 }
+
+#pragma mark UI
 
 - (void)windowDidLoad
 {

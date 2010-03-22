@@ -25,7 +25,6 @@
     [self release];
     return nil;
   }
-  bookmarks = [[NSMutableArray alloc] init];
   return self;
 }
 
@@ -68,22 +67,30 @@
 - (BOOL)syncBookmarks
 {
   [self fetchTags];
+  [self fetchBookmarks];
   return true;
 }
 
 - (void)fetchTags
 {
   NSError *err = nil;
+
   // DEBUG
   NSURL *tagsURL = [NSURL fileURLWithPath:@"/Users/oshuma/Projects/DeliciousBar/doc/tags.xml"];
   
-  //  NSURL *tagsURL = [NSURL URLWithString:[NSString
-  //                                         stringWithFormat:@"%@/tags/get", baseURL]];
+//    NSURL *tagsURL = [NSURL URLWithString:[NSString
+//                                           stringWithFormat:@"%@/tags/get", baseURL]];
   
-  tags = [[NSXMLDocument alloc]
-          initWithContentsOfURL:tagsURL
-          options:0
-          error:&err];
+  NSXMLDocument *tagsDoc = [[NSXMLDocument alloc]
+                            initWithContentsOfURL:tagsURL
+                            options:0
+                            error:&err];
+  tags = [[tagsDoc rootElement] elementsForName:@"tag"];
+}
+
+- (void)fetchBookmarks
+{
+  NSLog(@"TAGS: %@", tags);
 }
 
 @end

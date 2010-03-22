@@ -66,46 +66,35 @@
 
 - (BOOL)syncBookmarks
 {
-  [self fetchTags];
   [self fetchBookmarks];
   return true;
 }
 
 - (void)fetchTags
 {
-//  [self sendRequest:@"/tags/get"];
-  NSError *err = nil;
-
-  // DEBUG
-  NSURL *tagsURL = [NSURL fileURLWithPath:@"/Users/oshuma/Projects/DeliciousBar/doc/tags.xml"];
-  
-//    NSURL *tagsURL = [NSURL URLWithString:[NSString
-//                                           stringWithFormat:@"%@/tags/get", baseURL]];
-  
-  NSXMLDocument *tagsDoc = [[NSXMLDocument alloc]
-                            initWithContentsOfURL:tagsURL
-                            options:0
-                            error:&err];
-
-  tags = [[tagsDoc rootElement] elementsForName:@"tag"];
+  tags = [[[self sendRequest:@"tags/get"] rootElement] elementsForName:@"tag"];
 }
 
 - (void)fetchBookmarks
 {
   if (!tags) [self fetchTags];
-//  [self sendRequest:@"/posts/all"];
+  bookmarks = [[[self sendRequest:@"posts/all"] rootElement] elementsForName:@"post"];
+}
+
+// TODO: Check +request+ for leading '/' and remove if present.
+- (NSXMLDocument *)sendRequest:(NSString *)request
+{
   NSError *err = nil;
-  
+
   // DEBUG
-  NSURL *postsURL = [NSURL fileURLWithPath:@"/Users/oshuma/Projects/DeliciousBar/doc/posts_all.xml"];
-
-//  NSURL *postsURL = [NSURL URLWithString:[NSString
-//                                          stringWithFormat:@"%@/posts/all", baseURL]];
-
-  NSXMLDocument *posts = [[NSXMLDocument alloc]
-                          initWithContentsOfURL:postsURL
-                          options:0
-                          error:&err];
+  NSURL *requestURL = [NSURL fileURLWithPath:[NSString
+                                              stringWithFormat:@"/Users/oshuma/Projects/DeliciousBar/test/%@", request]];
+//  NSURL *requestURL = [NSURL URLWithString:[NSString
+//                                            stringWithFormat:@"%@/%@", baseURL, request]];
+  return [[NSXMLDocument alloc]
+          initWithContentsOfURL:requestURL
+          options:0
+          error:&err];
 }
 
 @end

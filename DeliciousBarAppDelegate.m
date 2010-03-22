@@ -61,6 +61,8 @@
   // TODO: Can probably set these in Interface Builder.
   [statusItem setTitle:@"Delicious"];
   [statusItem setHighlightMode:YES];
+
+  // TODO: Icon instead of text.
 //  [statusItem setImage:imageObject];
 //  [statusItem setAlternateImage:otherImageObject];
 }

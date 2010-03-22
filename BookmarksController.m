@@ -33,6 +33,8 @@
   if ([user syncBookmarks]) {
     NSLog(@"%@: SYNC OK", self);
     [cancelButton setTitle:@"Finished"];
+    // TODO: Update tags menu.
+    NSLog(@"Bookmarks: %@", [user bookmarks]);
   } else {
     NSLog(@"%@: SYNC FAIL", self);
     // TODO: Maybe an alert here.

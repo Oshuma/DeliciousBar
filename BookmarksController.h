@@ -16,7 +16,7 @@ extern NSString *const DBPasswordPrefKey;
 @interface BookmarksController : NSWindowController {
   IBOutlet NSButton *cancelButton;
   IBOutlet NSProgressIndicator *progressBar;
-  
+
   NSUserDefaults *preferences;
   DeliciousUser *user;
 }

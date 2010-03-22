@@ -15,8 +15,19 @@
 @synthesize baseURL;
 @synthesize website;
 @synthesize tags;
+@synthesize bookmarks;
 
 #pragma mark factory
+
+- (id)init
+{
+  if (![super init]) {
+    [self release];
+    return nil;
+  }
+  bookmarks = [[NSMutableArray alloc] init];
+  return self;
+}
 
 - (id)initWithUsername:(NSString *)theUsername andPassword:(NSString *)thePassword
 {
@@ -47,6 +58,8 @@
   [password release];
   [baseURL release];
   [website release];
+  [tags release];
+  [bookmarks release];
   [super dealloc];
 }
 

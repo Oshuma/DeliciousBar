@@ -13,14 +13,16 @@
   NSString *password;
   NSString *baseURL;
   NSURL    *website;
-  NSXMLDocument *tags;
+  NSXMLDocument  *tags;
+  NSMutableArray *bookmarks;
 }
 
 @property (readwrite, assign) NSString *username;
 @property (readwrite, assign) NSString *password;
 @property (readonly, assign)  NSString *baseURL;
 @property (readonly, assign)  NSURL    *website;
-@property (readwrite, assign) NSXMLDocument *tags;
+@property (readwrite, assign) NSXMLDocument  *tags;
+@property (readwrite, assign) NSMutableArray *bookmarks;
 
 - (id)initWithUsername:(NSString *)theUsername andPassword:(NSString *)thePassword;
 - (BOOL)syncBookmarks;

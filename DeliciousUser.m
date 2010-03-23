@@ -25,6 +25,9 @@
     [self release];
     return nil;
   }
+
+  // TODO: Load saved bookmarks.
+  // TODO: Set lastUpdate time and check before making a request.
   return self;
 }
 

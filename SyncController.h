@@ -22,6 +22,7 @@ extern NSString *const DBPasswordPrefKey;
 }
 
 - (IBAction)cancelOrFinish:(id)sender;
+- (DeliciousUser *)getDeliciousUser;
 - (void)updateTagsMenu;
 
 @end

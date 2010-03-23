@@ -17,16 +17,15 @@
 {
   if (![super initWithWindowNibName:@"Sync"]) return nil;
   if (!preferences) preferences = [NSUserDefaults standardUserDefaults];
-  
-  user = [[DeliciousUser alloc]
-          initWithUsername:[preferences objectForKey:DBUserPrefKey]
-          andPassword:[preferences objectForKey:DBPasswordPrefKey]];
-  [user syncBookmarks];
-
   return self;
 }
 
 #pragma mark UI
+
+- (void)windowWillLoad
+{
+  user = [self getDeliciousUser];
+}
 
 - (void)windowDidLoad
 {
@@ -52,6 +51,9 @@
 
 - (void)updateTagsMenu
 {
+  // Setup the user if not being called from a nib.
+  if (!user) user = [self getDeliciousUser];
+
   NSMenu *tagsMenu = [[[[NSApp delegate] mainMenu] itemWithTitle:@"Tags"] submenu];
 
   for(int i = 0; i < [[user tags] count]; i++) {
@@ -69,6 +71,13 @@
   }
 
   [tagsMenu release];
+}
+
+#pragma mark utility
+
+- (DeliciousUser *)getDeliciousUser
+{
+  return (DeliciousUser *)[[NSApp delegate] user];
 }
 
 @end

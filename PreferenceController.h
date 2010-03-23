@@ -8,12 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 
+extern NSString *const DBSyncOnLaunchKey;
 extern NSString *const DBUserPrefKey;
+extern NSString *const DBPasswordPrefKey;
 
 @interface PreferenceController : NSWindowController {
   NSUserDefaults *preferences;
   IBOutlet NSTextField *usernameField;
   IBOutlet NSTextField *passwordField;
+  IBOutlet NSButton *syncOnLaunchCheckbox;
 }
 
 - (IBAction)closeWindow:(id)sender;

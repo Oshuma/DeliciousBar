@@ -8,6 +8,7 @@
 
 #import "PreferenceController.h"
 
+NSString *const DBSyncOnLaunchKey = @"SyncOnLaunch";
 NSString *const DBUserPrefKey = @"DeliciousUsername";
 NSString *const DBPasswordPrefKey = @"DeliciousPassword";
 
@@ -26,6 +27,7 @@ NSString *const DBPasswordPrefKey = @"DeliciousPassword";
 
 - (void)windowDidLoad
 {
+  [syncOnLaunchCheckbox setState:[preferences boolForKey:DBSyncOnLaunchKey]];
   NSString *username = [preferences objectForKey:DBUserPrefKey];
   NSString *password = [preferences objectForKey:DBPasswordPrefKey];
   if (username) [usernameField setStringValue:username];
@@ -43,6 +45,7 @@ NSString *const DBPasswordPrefKey = @"DeliciousPassword";
   NSString *password = [passwordField stringValue];
   [preferences setObject:username forKey:DBUserPrefKey];
   [preferences setObject:password forKey:DBPasswordPrefKey];
+  [preferences setBool:[syncOnLaunchCheckbox state] forKey:DBSyncOnLaunchKey];
   [self close];
 }
 

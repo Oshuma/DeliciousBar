@@ -44,11 +44,12 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-  // TODO: Move 'sync on launch' to a preference.
-  if ([user syncBookmarks]) {
-    NSLog(@"Sync on launch: OK");
-  } else {
-    NSLog(@"Sync on launch: FAIL");
+  if ([preferences boolForKey:DBSyncOnLaunchKey]) {
+    if ([user syncBookmarks]) {
+      NSLog(@"Sync on launch: OK");
+    } else {
+      NSLog(@"Sync on launch: FAIL");
+    }
   }
   NSLog(@"App launched.");
 }

@@ -8,7 +8,6 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="450"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1745,14 +1744,6 @@
 					<int key="connectionID">449</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">statusMenu</string>
-						<reference key="source" ref="19378855"/>
-						<reference key="destination" ref="714993587"/>
-					</object>
-					<int key="connectionID">456</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">quitApplication:</string>
 						<reference key="source" ref="19378855"/>
@@ -1791,6 +1782,14 @@
 						<reference key="destination" ref="173528177"/>
 					</object>
 					<int key="connectionID">472</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">mainMenu</string>
+						<reference key="source" ref="19378855"/>
+						<reference key="destination" ref="714993587"/>
+					</object>
+					<int key="connectionID">477</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2702,14 +2701,6 @@
 						<reference key="parent" ref="1049"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">458</int>
-						<reference key="object" ref="583266909"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-						</object>
-						<reference key="parent" ref="874112558"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">471</int>
 						<reference key="object" ref="765690924"/>
 						<reference key="parent" ref="714993587"/>
@@ -2763,7 +2754,15 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">476</int>
 						<reference key="object" ref="733611772"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+						</object>
 						<reference key="parent" ref="714993587"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">458</int>
+						<reference key="object" ref="583266909"/>
+						<reference key="parent" ref="874112558"/>
 					</object>
 				</object>
 			</object>
@@ -3268,7 +3267,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">476</int>
+			<int key="maxID">477</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3297,7 +3296,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>statusMenu</string>
+							<string>mainMenu</string>
 							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">

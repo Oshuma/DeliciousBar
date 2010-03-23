@@ -43,10 +43,8 @@
   [self setUsername:theUsername];
   [self setPassword:thePassword];
 
-  baseURL = [NSString stringWithFormat:@"https://%@:%@@api.del.icio.us/v1",
-             username, password];
-  website = [NSURL URLWithString:
-             [NSString stringWithFormat:@"http://delicious.com/%@", username]];
+  baseURL = [NSString stringWithFormat:@"https://%@:%@@api.del.icio.us/v1", username, password];
+  website = [NSURL URLWithString:[NSString stringWithFormat:@"http://delicious.com/%@", username]];
 
   return self;
 }
@@ -67,7 +65,7 @@
 - (BOOL)syncBookmarks
 {
   [self fetchBookmarks];
-  return true;
+  return !!bookmarks;
 }
 
 - (void)fetchTags

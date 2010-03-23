@@ -13,14 +13,15 @@
 @interface DeliciousBarAppDelegate : NSObject {
   NSWindow *window;
 
-  IBOutlet NSMenu *statusMenu;
-  NSStatusItem *statusItem;
+  IBOutlet NSMenu *mainMenu;
+  NSStatusItem *mainMenuItem;
 
   NSUserDefaults *preferences;
   DeliciousUser *user;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSMenu *mainMenu;
 @property (readwrite, assign) NSUserDefaults *preferences;
 @property (readwrite, assign) DeliciousUser *user;
 

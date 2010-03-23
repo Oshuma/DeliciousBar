@@ -17,7 +17,8 @@
 {
   if (![super initWithWindowNibName:@"Bookmarks"]) return nil;
   if (!preferences) preferences = [NSUserDefaults standardUserDefaults];
-
+  
+  // FIXME: This should be accessed from the delegate user instead of creating a new instance.
   user = [[DeliciousUser alloc]
           initWithUsername:[preferences objectForKey:DBUserPrefKey]
           andPassword:[preferences objectForKey:DBPasswordPrefKey]];
@@ -31,11 +32,9 @@
 {
   [progressBar startAnimation:self];
   if ([user syncBookmarks]) {
-    NSLog(@"%@: SYNC OK", self);
+    [self updateTagsMenu];
     [cancelButton setTitle:@"Finished"];
-    // TODO: Update tags menu.
   } else {
-    NSLog(@"%@: SYNC FAIL", self);
     // TODO: Maybe an alert here.
     [cancelButton setTitle:@"Failed"];
   }
@@ -44,11 +43,30 @@
 
 - (IBAction)cancelOrFinish:(id)sender
 {
-  NSLog(@"cancelOrFinish:");
   [progressBar stopAnimation:self];
   [preferences release];
   [user release];
   [self close];
+}
+
+- (void)updateTagsMenu
+{
+  NSMenu *tagsMenu = [[[[NSApp delegate] mainMenu] itemWithTitle:@"Tags"] submenu];
+
+  for(int i = 0; i < [[user tags] count]; i++) {
+    NSString *tagName = [[[[user tags] objectAtIndex:i] attributeForName:@"tag"] stringValue];
+    NSMenuItem *tagItem = [[NSMenuItem alloc]
+                           initWithTitle:tagName
+                           action:nil
+                           keyEquivalent:@""];
+
+    [tagsMenu addItem:tagItem];
+
+    [tagItem release];
+    [tagName release];
+  }
+
+  [tagsMenu release];
 }
 
 @end

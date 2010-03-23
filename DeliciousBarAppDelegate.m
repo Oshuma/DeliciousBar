@@ -14,6 +14,7 @@
 @implementation DeliciousBarAppDelegate
 
 @synthesize window;
+@synthesize mainMenu;
 @synthesize user;
 @synthesize preferences;
 
@@ -43,6 +44,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+  // TODO: Move 'sync on launch' to a preference.
   if ([user syncBookmarks]) {
     NSLog(@"Sync on launch: OK");
   } else {
@@ -55,16 +57,16 @@
 
 - (void)awakeFromNib
 {
-  statusItem = [[[NSStatusBar systemStatusBar]
-                 statusItemWithLength:NSVariableStatusItemLength] retain];
-  [statusItem setMenu:statusMenu];
+  mainMenuItem = [[[NSStatusBar systemStatusBar]
+                   statusItemWithLength:NSVariableStatusItemLength] retain];
+  [mainMenuItem setMenu:mainMenu];
   // TODO: Can probably set these in Interface Builder.
-  [statusItem setTitle:@"Delicious"];
-  [statusItem setHighlightMode:YES];
+  [mainMenuItem setTitle:@"Delicious"];
+  [mainMenuItem setHighlightMode:YES];
 
   // TODO: Icon instead of text.
-//  [statusItem setImage:imageObject];
-//  [statusItem setAlternateImage:otherImageObject];
+//  [mainMenuItem setImage:imageObject];
+//  [mainMenuItem setAlternateImage:otherImageObject];
 }
 
 - (IBAction)openWebsite:(id)sender
@@ -84,6 +86,7 @@
 
 - (IBAction)syncBookmarks:(id)sender
 {
+//  [[BookmarksController initWithMenu:statusMenu] showWindow:self];
   [[[BookmarksController alloc] init] showWindow:self];
 }
 

@@ -27,6 +27,7 @@
 
 - (IBAction)openWebsite:(id)sender;
 - (IBAction)showPreferencePanel:(id)sender;
+- (IBAction)browseBookmarks:(id)sender;
 - (IBAction)syncBookmarks:(id)sender;
 - (IBAction)quitApplication:(id)sender;
 

@@ -22,7 +22,7 @@
 @property (readonly, assign)  NSString *baseURL;
 @property (readonly, assign)  NSURL    *website;
 @property (readwrite, assign) NSArray  *tags;
-@property (readwrite, assign) NSArray  *bookmarks;
+@property (readonly, assign) NSArray  *bookmarks;
 
 - (id)initWithUsername:(NSString *)theUsername andPassword:(NSString *)thePassword;
 

@@ -14,11 +14,11 @@ extern NSString *const DBUserPrefKey;
 extern NSString *const DBPasswordPrefKey;
 
 @interface SyncController : NSWindowController {
-  IBOutlet NSButton *cancelButton;
-  IBOutlet NSProgressIndicator *progressBar;
+  IBOutlet NSButton* cancelButton;
+  IBOutlet NSProgressIndicator* progressBar;
 
-  NSUserDefaults *preferences;
-  DeliciousUser *user;
+  NSUserDefaults* preferences;
+  DeliciousUser* user;
 }
 
 - (IBAction)cancelOrFinish:(id)sender;

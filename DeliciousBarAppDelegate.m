@@ -8,6 +8,7 @@
 
 #import "DeliciousBarAppDelegate.h"
 #import "PreferenceController.h"
+#import "BookmarksController.h"
 #import "SyncController.h"
 #import "DeliciousUser.h"
 
@@ -46,7 +47,7 @@
 {
   if ([preferences boolForKey:DBSyncOnLaunchKey]) {
     if ([user syncBookmarks]) {
-      NSLog(@"Sync on launch: OK");
+      // TODO: Update Tags menu.
     } else {
       NSLog(@"Sync on launch: FAIL");
     }
@@ -83,6 +84,11 @@
 - (IBAction)showPreferencePanel:(id)sender
 {
   [[[PreferenceController alloc] init] showWindow:self];
+}
+
+- (IBAction)browseBookmarks:(id)sender
+{
+  [[[BookmarksController alloc] init] showWindow:self];
 }
 
 - (IBAction)syncBookmarks:(id)sender

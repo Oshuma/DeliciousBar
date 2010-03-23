@@ -60,8 +60,17 @@
   [super dealloc];
 }
 
+#pragma mark accessors
+
+- (NSArray *)bookmarks
+{
+  if (!bookmarks) [self fetchBookmarks];
+  return bookmarks;
+}
+
 #pragma mark public
 
+// TODO: Should probably save the bookmarks locally.
 - (BOOL)syncBookmarks
 {
   [self fetchBookmarks];

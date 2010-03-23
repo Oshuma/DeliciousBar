@@ -18,7 +18,6 @@
   if (![super initWithWindowNibName:@"Sync"]) return nil;
   if (!preferences) preferences = [NSUserDefaults standardUserDefaults];
   
-  // FIXME: This should be accessed from the delegate user instead of creating a new instance.
   user = [[DeliciousUser alloc]
           initWithUsername:[preferences objectForKey:DBUserPrefKey]
           andPassword:[preferences objectForKey:DBPasswordPrefKey]];
@@ -60,6 +59,7 @@
                            action:nil
                            keyEquivalent:@""];
 
+    // TODO: Add submenu for each tag (containing the tags bookmarks).
     [tagsMenu addItem:tagItem];
 
     [tagItem release];

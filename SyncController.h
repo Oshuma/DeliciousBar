@@ -1,5 +1,5 @@
 //
-//  BookmarksController.h
+//  SyncController.h
 //  DeliciousBar
 //
 //  Created by Dale Campbell on 3/21/10.
@@ -13,7 +13,7 @@
 extern NSString *const DBUserPrefKey;
 extern NSString *const DBPasswordPrefKey;
 
-@interface BookmarksController : NSWindowController {
+@interface SyncController : NSWindowController {
   IBOutlet NSButton *cancelButton;
   IBOutlet NSProgressIndicator *progressBar;
 

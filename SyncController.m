@@ -1,21 +1,21 @@
 //
-//  BookmarksController.m
+//  SyncController.m
 //  DeliciousBar
 //
 //  Created by Dale Campbell on 3/21/10.
 //  Copyright 2010 WTFPL. All rights reserved.
 //
 
-#import "BookmarksController.h"
+#import "SyncController.h"
 #import "DeliciousUser.h"
 
-@implementation BookmarksController
+@implementation SyncController
 
 #pragma mark factory
 
 - (id)init
 {
-  if (![super initWithWindowNibName:@"Bookmarks"]) return nil;
+  if (![super initWithWindowNibName:@"Sync"]) return nil;
   if (!preferences) preferences = [NSUserDefaults standardUserDefaults];
   
   // FIXME: This should be accessed from the delegate user instead of creating a new instance.

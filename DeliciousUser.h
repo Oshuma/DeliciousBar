@@ -30,5 +30,6 @@
 - (void)fetchTags;
 - (void)fetchBookmarks;
 - (NSXMLDocument *)sendRequest:(NSString *)request;
+- (NSArray *)getBookmarksForTag:(NSString *)theTag;
 
 @end

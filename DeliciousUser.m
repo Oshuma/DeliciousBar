@@ -91,6 +91,23 @@
   bookmarks = [[[self sendRequest:@"posts/all"] rootElement] elementsForName:@"post"];
 }
 
+- (NSArray *)getBookmarksForTag:(NSString *)theTag
+{
+  NSMutableArray *theBookmarks = [NSMutableArray array];
+  NSEnumerator *iterator = [bookmarks objectEnumerator];
+
+  id bookmark;
+  while (bookmark = [iterator nextObject]) {
+    NSArray *tagNames = [[[bookmark attributeForName:@"tag"]
+                          stringValue] componentsSeparatedByString:@" "];
+    if ([tagNames containsObject:theTag]) [theBookmarks addObject:bookmark];
+    [tagNames release];
+  }
+
+  [iterator release];
+  return [NSArray arrayWithArray:theBookmarks];
+}
+
 // TODO: Check +request+ for leading '/' and remove if present.
 - (NSXMLDocument *)sendRequest:(NSString *)request
 {

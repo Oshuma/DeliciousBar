@@ -33,6 +33,8 @@
           initWithUsername:[preferences objectForKey:DBUserPrefKey]
           andPassword:[preferences objectForKey:DBPasswordPrefKey]];
 
+  syncController = [[SyncController alloc] init];
+
   return self;
 }
 
@@ -48,6 +50,7 @@
   if ([preferences boolForKey:DBSyncOnLaunchKey]) {
     if ([user syncBookmarks]) {
       // TODO: Update Tags menu.
+      [syncController updateTagsMenu];
     } else {
       NSLog(@"Sync on launch: FAIL");
     }
@@ -88,12 +91,14 @@
 
 - (IBAction)browseBookmarks:(id)sender
 {
-  [[[BookmarksController alloc] init] showWindow:self];
+  if (!bookmarksController) bookmarksController = [[BookmarksController alloc] init];
+  [bookmarksController showWindow:self];
 }
 
 - (IBAction)syncBookmarks:(id)sender
 {
-  [[[SyncController alloc] init] showWindow:self];
+  if (!syncController) syncController = [[SyncController alloc] init];
+  [syncController showWindow:self];
 }
 
 - (IBAction)quitApplication:(id)sender

@@ -8,16 +8,21 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class BookmarksController;
+@class SyncController;
 @class DeliciousUser;
 
 @interface DeliciousBarAppDelegate : NSObject {
-  NSWindow *window;
+  NSWindow* window;
 
-  IBOutlet NSMenu *mainMenu;
-  NSStatusItem *mainMenuItem;
+  IBOutlet NSMenu* mainMenu;
+  NSStatusItem* mainMenuItem;
 
-  NSUserDefaults *preferences;
-  DeliciousUser *user;
+  BookmarksController* bookmarksController;
+  SyncController* syncController;
+
+  NSUserDefaults* preferences;
+  DeliciousUser* user;
 }
 
 @property (assign) IBOutlet NSWindow *window;

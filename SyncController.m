@@ -21,6 +21,7 @@
   user = [[DeliciousUser alloc]
           initWithUsername:[preferences objectForKey:DBUserPrefKey]
           andPassword:[preferences objectForKey:DBPasswordPrefKey]];
+  [user syncBookmarks];
 
   return self;
 }
@@ -32,9 +33,10 @@
   [progressBar startAnimation:self];
   if ([user syncBookmarks]) {
     [self updateTagsMenu];
+    // TODO: Set a timeout until the window closes itself.
     [cancelButton setTitle:@"Finished"];
   } else {
-    // TODO: Maybe an alert here.
+    // TODO: Maybe an NSAlert here.
     [cancelButton setTitle:@"Failed"];
   }
   [progressBar stopAnimation:self];

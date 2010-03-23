@@ -63,9 +63,28 @@
                            action:nil
                            keyEquivalent:@""];
 
-    // TODO: Add submenu for each tag (containing the tags bookmarks).
+    NSMenu *tagSubmenu = [[NSMenu alloc] initWithTitle:tagName];
+    NSArray *posts = [user getBookmarksForTag:tagName];
+
+    NSEnumerator *iterator = [posts objectEnumerator];
+    id post;
+    while (post = [iterator nextObject]) {
+      NSMenuItem *postItem = [[NSMenuItem alloc]
+                              initWithTitle:[[post attributeForName:@"description"] stringValue]
+                              action:nil
+                              keyEquivalent:@""];
+
+      [postItem setToolTip:[[post attributeForName:@"href"] stringValue]];
+      [tagSubmenu addItem:postItem];
+
+      [postItem release];
+    }
+
+    [tagItem setSubmenu:tagSubmenu];
     [tagsMenu addItem:tagItem];
 
+    [posts release];
+    [tagSubmenu release];
     [tagItem release];
     [tagName release];
   }

@@ -8,9 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-extern NSString *const DBSyncOnLaunchKey;
-extern NSString *const DBUserPrefKey;
-extern NSString *const DBPasswordPrefKey;
+extern NSString* const DBSyncOnLaunchKey;
+extern NSString* const DBUserPrefKey;
+extern NSString* const DBPasswordPrefKey;
 
 @interface PreferenceController : NSWindowController {
   NSUserDefaults *preferences;

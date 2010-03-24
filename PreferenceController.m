@@ -8,9 +8,9 @@
 
 #import "PreferenceController.h"
 
-NSString *const DBSyncOnLaunchKey = @"SyncOnLaunch";
-NSString *const DBUserPrefKey = @"DeliciousUsername";
-NSString *const DBPasswordPrefKey = @"DeliciousPassword";
+NSString* const DBSyncOnLaunchKey = @"SyncOnLaunch";
+NSString* const DBUserPrefKey     = @"DeliciousUsername";
+NSString* const DBPasswordPrefKey = @"DeliciousPassword";
 
 @implementation PreferenceController
 

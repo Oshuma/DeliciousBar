@@ -8,6 +8,7 @@
 
 #import "SyncController.h"
 #import "DeliciousUser.h"
+#import "Tag.h"
 
 @implementation SyncController
 
@@ -59,14 +60,16 @@
   NSMenu *tagsMenu = [[[[NSApp delegate] mainMenu] itemWithTitle:@"Tags"] submenu];
 
   for(int i = 0; i < [[user tags] count]; i++) {
-    NSString *tagName = [[[[user tags] objectAtIndex:i] attributeForName:@"tag"] stringValue];
+//    NSString *tagName = [[[[user tags] objectAtIndex:i] attributeForName:@"tag"] stringValue];
+    Tag *tag = [[user tags] objectAtIndex:i];
     NSMenuItem *tagItem = [[NSMenuItem alloc]
-                           initWithTitle:tagName
+                           initWithTitle:[tag name]
                            action:nil
                            keyEquivalent:@""];
 
-    NSMenu *tagSubmenu = [[NSMenu alloc] initWithTitle:tagName];
-    NSArray *posts = [user getBookmarksForTag:tagName];
+    NSMenu *tagSubmenu = [[NSMenu alloc] initWithTitle:[tag name]];
+//    NSArray *posts = [user getBookmarksForTag:tagName];
+    NSArray *posts = [tag bookmarks];
     NSEnumerator *iterator = [posts objectEnumerator];
 
     id post;
@@ -92,7 +95,7 @@
     [posts release];
     [tagSubmenu release];
     [tagItem release];
-    [tagName release];
+    [tag release];
   }
 
   [tagsMenu release];

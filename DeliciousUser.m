@@ -7,6 +7,7 @@
 //
 
 #import "DeliciousUser.h"
+#import "Tag.h"
 
 // Preference keys.
 NSString *const DBSyncOnLaunchKey     = @"SyncOnLaunch";
@@ -108,7 +109,24 @@ NSString *const DeliciousTagsKey      = @"DeliciousTags";
 
 - (void)fetchTags
 {
-  tags = [[[self sendRequest:@"tags/get"] rootElement] elementsForName:@"tag"];
+//  tags = [[[self sendRequest:@"tags/get"] rootElement] elementsForName:@"tag"];
+  NSMutableArray *theTags = [NSMutableArray array];
+  NSArray *tagElements = [[[self sendRequest:@"tags/get"] rootElement] elementsForName:@"tag"];
+  NSEnumerator *iterator = [tagElements objectEnumerator];
+
+  id tag;
+  while (tag = [iterator nextObject]) {
+    NSString *tagName = [[tag attributeForName:@"tag"] stringValue];
+    [theTags addObject:[[Tag alloc] initWithName:tagName]];
+    [tagName release];
+  }
+
+  tags = [NSArray arrayWithArray:theTags];
+
+  [tag release];
+  [iterator release];
+  [tagElements release];
+  [theTags release];
   [self saveTags];
 }
 

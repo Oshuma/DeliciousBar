@@ -21,6 +21,7 @@
 		9A421B011159BBD70024D673 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 9A421B001159BBD70024D673 /* README */; };
 		9A421B4D1159CC850024D673 /* menuIcon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9A421B4C1159CC850024D673 /* menuIcon.gif */; };
 		9A60429311558A0400C2C9E1 /* DeliciousBarAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A60429211558A0400C2C9E1 /* DeliciousBarAppDelegate.m */; };
+		9AD66CB9115ACCEA00416B19 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD66CB8115ACCEA00416B19 /* Tag.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,8 @@
 		9A421B4C1159CC850024D673 /* menuIcon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = menuIcon.gif; sourceTree = "<group>"; };
 		9A60429111558A0400C2C9E1 /* DeliciousBarAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliciousBarAppDelegate.h; sourceTree = "<group>"; };
 		9A60429211558A0400C2C9E1 /* DeliciousBarAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliciousBarAppDelegate.m; sourceTree = "<group>"; };
+		9AD66CB7115ACCEA00416B19 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		9AD66CB8115ACCEA00416B19 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +79,8 @@
 				9A2678551155EFA3007799CD /* DeliciousUser.m */,
 				9A1CB9D411585CF40015ADDE /* BookmarksController.h */,
 				9A1CB9D511585CF40015ADDE /* BookmarksController.m */,
+				9AD66CB7115ACCEA00416B19 /* Tag.h */,
+				9AD66CB8115ACCEA00416B19 /* Tag.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				9A2677FF1155E47A007799CD /* SyncController.m in Sources */,
 				9A2678561155EFA3007799CD /* DeliciousUser.m in Sources */,
 				9A1CB9D611585CF40015ADDE /* BookmarksController.m in Sources */,
+				9AD66CB9115ACCEA00416B19 /* Tag.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

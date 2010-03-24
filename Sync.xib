@@ -96,14 +96,6 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">initialFirstResponder</string>
-						<reference key="source" ref="1045246810"/>
-						<reference key="destination" ref="444102287"/>
-					</object>
-					<int key="connectionID">6</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">cancelButton</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="444102287"/>

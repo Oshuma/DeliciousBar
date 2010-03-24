@@ -29,12 +29,6 @@
   }
 
   if (!preferences) preferences = [NSUserDefaults standardUserDefaults];
-  user = [[DeliciousUser alloc]
-          initWithUsername:[preferences objectForKey:DBUserPrefKey]
-          andPassword:[preferences objectForKey:DBPasswordPrefKey]];
-
-  syncController = [[SyncController alloc] init];
-
   return self;
 }
 
@@ -49,12 +43,21 @@
 {
   if ([preferences boolForKey:DBSyncOnLaunchKey]) {
     if ([user syncBookmarks]) {
-      [syncController updateTagsMenu];
+      [[[SyncController alloc] init] updateTagsMenu];
     } else {
       NSLog(@"Sync on launch: FAIL");
     }
   }
   NSLog(@"App launched.");
+}
+
+- (DeliciousUser *)user
+{
+  if (user) return user;
+  user = [[DeliciousUser alloc]
+          initWithUsername:[preferences objectForKey:DBUserPrefKey]
+          andPassword:[preferences objectForKey:DBPasswordPrefKey]];
+  return user;
 }
 
 #pragma mark UI
@@ -69,7 +72,6 @@
 
   NSString *icon = [[NSBundle mainBundle] pathForResource:@"menuIcon" ofType:@"gif"];
   [mainMenuItem setImage:[[NSImage alloc] initWithContentsOfFile:icon]];
-//  [mainMenuItem setAlternateImage:otherImageObject];
 }
 
 - (IBAction)openWebsite:(id)sender
@@ -89,15 +91,11 @@
 
 - (IBAction)browseBookmarks:(id)sender
 {
-//  if (!bookmarksController) bookmarksController = [[BookmarksController alloc] init];
-//  [bookmarksController showWindow:self];
   [[[BookmarksController alloc] init] showWindow:self];
 }
 
 - (IBAction)syncBookmarks:(id)sender
 {
-//  if (!syncController) syncController = [[SyncController alloc] init];
-//  [syncController showWindow:self];
   [[[SyncController alloc] init] showWindow:self];
 }
 

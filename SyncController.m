@@ -17,15 +17,11 @@
 {
   if (![super initWithWindowNibName:@"Sync"]) return nil;
   if (!preferences) preferences = [NSUserDefaults standardUserDefaults];
+  user = [self getDeliciousUser];
   return self;
 }
 
 #pragma mark UI
-
-- (void)windowWillLoad
-{
-  user = [self getDeliciousUser];
-}
 
 - (void)windowDidLoad
 {
@@ -36,12 +32,12 @@
     [cancelButton setTitle:@"Finished"];
   } else {
     // FIXME: Weird things happen here.  The Bookmarks nib gets loaded for some reason.
-    [[NSAlert alertWithMessageText:@"Sync failed."
-                     defaultButton:@"Aww..."
-                   alternateButton:nil
-                       otherButton:nil
-         informativeTextWithFormat:nil]
-     runModal];
+//    [[NSAlert alertWithMessageText:@"Sync failed."
+//                     defaultButton:@"Aww..."
+//                   alternateButton:nil
+//                       otherButton:nil
+//         informativeTextWithFormat:nil]
+//     runModal];
     [cancelButton setTitle:@"Failed"];
   }
   [progressBar stopAnimation:self];

@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+extern NSURL *const DeliciousAPIURL;
+
 @interface DeliciousUser : NSObject {
   NSString *username;
   NSString *password;

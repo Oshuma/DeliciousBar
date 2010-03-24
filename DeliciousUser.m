@@ -45,9 +45,14 @@
   
   [self setUsername:theUsername];
   [self setPassword:thePassword];
-
-  baseURL = [NSString stringWithFormat:@"https://%@:%@@api.del.icio.us/v1", username, password];
   website = [NSURL URLWithString:[NSString stringWithFormat:@"http://delicious.com/%@", username]];
+
+#ifdef DEBUG
+  baseURL = [NSURL URLWithString:@"http://localhost:4567"];
+#else
+  baseURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@:%@@api.del.icio.us/v1",
+                                  username, password]];
+#endif
 
   return self;
 }
@@ -120,11 +125,7 @@
 {
   NSError *requestError = nil;
 
-  // DEBUG
-  NSURL *requestURL = [NSURL URLWithString:[NSString
-                                            stringWithFormat:@"%@/%@", @"http://localhost:4567", request]];
-//  NSURL *requestURL = [NSURL URLWithString:[NSString
-//                                            stringWithFormat:@"%@/%@", baseURL, request]];
+  NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", baseURL, request]];
 
   NSXMLDocument *theDoc = [[NSXMLDocument alloc]
                            initWithContentsOfURL:requestURL
@@ -132,15 +133,18 @@
                            error:&requestError];
 
   if (requestError) {
-    // TODO: Properly handle the request error.
+    // FIXME: It pukes here if using the 'Release' build.
     NSLog(@"ERROR: sendRequest: %@/%@", baseURL, request);
     NSLog(@"\t\t %@", requestError);
-
-    [theDoc release];
-    return nil;
-  } else {
-    return theDoc;
+    [[NSAlert alertWithMessageText:@"Could not process request."
+                     defaultButton:@"Well...fuck."
+                   alternateButton:nil
+                       otherButton:nil
+         informativeTextWithFormat:[NSString stringWithFormat:@"%@", requestError]]
+     runModal];
   }
+
+  return theDoc;
 }
 
 @end

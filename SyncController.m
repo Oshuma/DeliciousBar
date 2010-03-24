@@ -65,8 +65,8 @@
 
     NSMenu *tagSubmenu = [[NSMenu alloc] initWithTitle:tagName];
     NSArray *posts = [user getBookmarksForTag:tagName];
-
     NSEnumerator *iterator = [posts objectEnumerator];
+
     id post;
     while (post = [iterator nextObject]) {
       NSMenuItem *postItem = [[NSMenuItem alloc]
@@ -74,15 +74,19 @@
                               action:nil
                               keyEquivalent:@""];
 
+      [postItem setTarget:user];
+      [postItem setAction:@selector(openBookmark:)];
+      [postItem setRepresentedObject:post];
       [postItem setToolTip:[[post attributeForName:@"href"] stringValue]];
-      [tagSubmenu addItem:postItem];
 
+      [tagSubmenu addItem:postItem];
       [postItem release];
     }
 
     [tagItem setSubmenu:tagSubmenu];
     [tagsMenu addItem:tagItem];
 
+    [iterator release];
     [posts release];
     [tagSubmenu release];
     [tagItem release];

@@ -29,6 +29,7 @@
 - (BOOL)syncBookmarks;
 - (void)fetchTags;
 - (void)fetchBookmarks;
+- (IBAction)openBookmark:(NSMenuItem *)menuItem;
 - (NSXMLDocument *)sendRequest:(NSString *)request;
 - (NSArray *)getBookmarksForTag:(NSString *)theTag;
 

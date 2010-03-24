@@ -91,6 +91,13 @@
   bookmarks = [[[self sendRequest:@"posts/all"] rootElement] elementsForName:@"post"];
 }
 
+- (IBAction)openBookmark:(NSMenuItem *)menuItem
+{
+  [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:
+                                          [[[menuItem representedObject]
+                                            attributeForName:@"href"] stringValue]]];
+}
+
 - (NSArray *)getBookmarksForTag:(NSString *)theTag
 {
   NSMutableArray *theBookmarks = [NSMutableArray array];

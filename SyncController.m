@@ -35,7 +35,13 @@
     // TODO: Set a timeout until the window closes itself.
     [cancelButton setTitle:@"Finished"];
   } else {
-    // TODO: Maybe an NSAlert here.
+    // FIXME: Weird things happen here.  The Bookmarks nib gets loaded for some reason.
+    [[NSAlert alertWithMessageText:@"Sync failed."
+                     defaultButton:@"Aww..."
+                   alternateButton:nil
+                       otherButton:nil
+         informativeTextWithFormat:nil]
+     runModal];
     [cancelButton setTitle:@"Failed"];
   }
   [progressBar stopAnimation:self];

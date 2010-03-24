@@ -49,7 +49,6 @@
 {
   if ([preferences boolForKey:DBSyncOnLaunchKey]) {
     if ([user syncBookmarks]) {
-      // TODO: Update Tags menu.
       [syncController updateTagsMenu];
     } else {
       NSLog(@"Sync on launch: FAIL");
@@ -65,7 +64,6 @@
   mainMenuItem = [[[NSStatusBar systemStatusBar]
                    statusItemWithLength:NSVariableStatusItemLength] retain];
   [mainMenuItem setMenu:mainMenu];
-  // TODO: Can probably set these in Interface Builder.
   [mainMenuItem setTitle:@"Delicious"];
   [mainMenuItem setHighlightMode:YES];
 
@@ -91,14 +89,16 @@
 
 - (IBAction)browseBookmarks:(id)sender
 {
-  if (!bookmarksController) bookmarksController = [[BookmarksController alloc] init];
-  [bookmarksController showWindow:self];
+//  if (!bookmarksController) bookmarksController = [[BookmarksController alloc] init];
+//  [bookmarksController showWindow:self];
+  [[[BookmarksController alloc] init] showWindow:self];
 }
 
 - (IBAction)syncBookmarks:(id)sender
 {
-  if (!syncController) syncController = [[SyncController alloc] init];
-  [syncController showWindow:self];
+//  if (!syncController) syncController = [[SyncController alloc] init];
+//  [syncController showWindow:self];
+  [[[SyncController alloc] init] showWindow:self];
 }
 
 - (IBAction)quitApplication:(id)sender

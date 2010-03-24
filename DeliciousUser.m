@@ -118,17 +118,29 @@
 // TODO: Check +request+ for leading '/' and remove if present.
 - (NSXMLDocument *)sendRequest:(NSString *)request
 {
-  NSError *err = nil;
+  NSError *requestError = nil;
 
   // DEBUG
-  NSURL *requestURL = [NSURL fileURLWithPath:[NSString
-                                              stringWithFormat:@"/Users/oshuma/Projects/DeliciousBar/test/%@", request]];
+  NSURL *requestURL = [NSURL URLWithString:[NSString
+                                            stringWithFormat:@"%@/%@", @"http://localhost:4567", request]];
 //  NSURL *requestURL = [NSURL URLWithString:[NSString
 //                                            stringWithFormat:@"%@/%@", baseURL, request]];
-  return [[NSXMLDocument alloc]
-          initWithContentsOfURL:requestURL
-          options:0
-          error:&err];
+
+  NSXMLDocument *theDoc = [[NSXMLDocument alloc]
+                           initWithContentsOfURL:requestURL
+                           options:0
+                           error:&requestError];
+
+  if (requestError) {
+    // TODO: Properly handle the request error.
+    NSLog(@"ERROR: sendRequest: %@/%@", baseURL, request);
+    NSLog(@"\t\t %@", requestError);
+
+    [theDoc release];
+    return nil;
+  } else {
+    return theDoc;
+  }
 }
 
 @end

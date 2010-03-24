@@ -8,7 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-extern NSURL *const DeliciousAPIURL;
+// Preference keys.
+extern NSString *const DBSyncOnLaunchKey;
+extern NSString *const DBUserPrefKey;
+extern NSString *const DBPasswordPrefKey;
+extern NSString *const DeliciousBookmarksKey;
+extern NSString *const DeliciousTagsKey;
 
 @interface DeliciousUser : NSObject {
   NSString *username;
@@ -24,15 +29,20 @@ extern NSURL *const DeliciousAPIURL;
 @property (readonly, assign)  NSString *baseURL;
 @property (readonly, assign)  NSURL    *website;
 @property (readwrite, assign) NSArray  *tags;
-@property (readonly, assign) NSArray  *bookmarks;
+@property (readonly, assign)  NSArray  *bookmarks;
 
 - (id)initWithUsername:(NSString *)theUsername andPassword:(NSString *)thePassword;
 
 - (BOOL)syncBookmarks;
-- (void)fetchTags;
+
 - (void)fetchBookmarks;
+- (void)saveBookmarks;
+
+- (void)fetchTags;
+- (void)saveTags;
+
+- (NSArray *)getBookmarksForTag:(NSString *)theTag;
 - (IBAction)openBookmark:(NSMenuItem *)menuItem;
 - (NSXMLDocument *)sendRequest:(NSString *)request;
-- (NSArray *)getBookmarksForTag:(NSString *)theTag;
 
 @end

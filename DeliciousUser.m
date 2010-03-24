@@ -8,6 +8,13 @@
 
 #import "DeliciousUser.h"
 
+// Preference keys.
+NSString *const DBSyncOnLaunchKey     = @"SyncOnLaunch";
+NSString *const DBUserPrefKey         = @"DeliciousUsername";
+NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
+NSString *const DeliciousBookmarksKey = @"DeliciousBookmarks";
+NSString *const DeliciousTagsKey      = @"DeliciousTags";
+
 @implementation DeliciousUser
 
 @synthesize username;
@@ -76,32 +83,43 @@
   return bookmarks;
 }
 
-#pragma mark public
+#pragma mark sync methods
 
-// TODO: Should probably save the bookmarks locally.
+// Fetch the remote bookmarks and save them locally.
 - (BOOL)syncBookmarks
 {
   [self fetchBookmarks];
   return !!bookmarks;
 }
 
-- (void)fetchTags
-{
-  tags = [[[self sendRequest:@"tags/get"] rootElement] elementsForName:@"tag"];
-}
-
 - (void)fetchBookmarks
 {
   if (!tags) [self fetchTags];
   bookmarks = [[[self sendRequest:@"posts/all"] rootElement] elementsForName:@"post"];
+  [self saveBookmarks];
 }
 
-- (IBAction)openBookmark:(NSMenuItem *)menuItem
+- (void)saveBookmarks
 {
-  [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:
-                                          [[[menuItem representedObject]
-                                            attributeForName:@"href"] stringValue]]];
+  [[NSUserDefaults standardUserDefaults]
+   setObject:[NSArray arrayWithArray:bookmarks]
+   forKey:DeliciousBookmarksKey];
 }
+
+- (void)fetchTags
+{
+  tags = [[[self sendRequest:@"tags/get"] rootElement] elementsForName:@"tag"];
+  [self saveTags];
+}
+
+- (void)saveTags
+{
+  [[NSUserDefaults standardUserDefaults]
+   setObject:[NSArray arrayWithArray:tags]
+   forKey:DeliciousTagsKey];
+}
+
+#pragma mark utility
 
 - (NSArray *)getBookmarksForTag:(NSString *)theTag
 {
@@ -118,6 +136,13 @@
 
   [iterator release];
   return [NSArray arrayWithArray:theBookmarks];
+}
+
+- (IBAction)openBookmark:(NSMenuItem *)menuItem
+{
+  [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:
+                                          [[[menuItem representedObject]
+                                            attributeForName:@"href"] stringValue]]];
 }
 
 // TODO: Check +request+ for leading '/' and remove if present.

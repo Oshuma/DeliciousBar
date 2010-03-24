@@ -19,6 +19,7 @@
 		9A26781A1155E6AA007799CD /* Sync.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2678191155E6AA007799CD /* Sync.xib */; };
 		9A2678561155EFA3007799CD /* DeliciousUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2678551155EFA3007799CD /* DeliciousUser.m */; };
 		9A421B011159BBD70024D673 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 9A421B001159BBD70024D673 /* README */; };
+		9A421B4D1159CC850024D673 /* menuIcon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9A421B4C1159CC850024D673 /* menuIcon.gif */; };
 		9A60429311558A0400C2C9E1 /* DeliciousBarAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A60429211558A0400C2C9E1 /* DeliciousBarAppDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		9A2678541155EFA3007799CD /* DeliciousUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliciousUser.h; sourceTree = "<group>"; };
 		9A2678551155EFA3007799CD /* DeliciousUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliciousUser.m; sourceTree = "<group>"; };
 		9A421B001159BBD70024D673 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		9A421B4C1159CC850024D673 /* menuIcon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = menuIcon.gif; sourceTree = "<group>"; };
 		9A60429111558A0400C2C9E1 /* DeliciousBarAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliciousBarAppDelegate.h; sourceTree = "<group>"; };
 		9A60429211558A0400C2C9E1 /* DeliciousBarAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliciousBarAppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +109,7 @@
 		29B97314FDCFA39411CA2CEA /* DeliciousBar */ = {
 			isa = PBXGroup;
 			children = (
+				9A421B4A1159CC590024D673 /* Images */,
 				9A421AFF1159BBC30024D673 /* Docs */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -154,6 +157,14 @@
 				9A421B001159BBD70024D673 /* README */,
 			);
 			name = Docs;
+			sourceTree = "<group>";
+		};
+		9A421B4A1159CC590024D673 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9A421B4C1159CC850024D673 /* menuIcon.gif */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +216,7 @@
 				9A26781A1155E6AA007799CD /* Sync.xib in Resources */,
 				9A1CB9E211585EE60015ADDE /* Bookmarks.xib in Resources */,
 				9A421B011159BBD70024D673 /* README in Resources */,
+				9A421B4D1159CC850024D673 /* menuIcon.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -64,11 +64,11 @@
   mainMenuItem = [[[NSStatusBar systemStatusBar]
                    statusItemWithLength:NSVariableStatusItemLength] retain];
   [mainMenuItem setMenu:mainMenu];
-  [mainMenuItem setTitle:@"Delicious"];
+
   [mainMenuItem setHighlightMode:YES];
 
-  // TODO: Icon instead of text.
-//  [mainMenuItem setImage:imageObject];
+  NSString *icon = [[NSBundle mainBundle] pathForResource:@"menuIcon" ofType:@"gif"];
+  [mainMenuItem setImage:[[NSImage alloc] initWithContentsOfFile:icon]];
 //  [mainMenuItem setAlternateImage:otherImageObject];
 }
 

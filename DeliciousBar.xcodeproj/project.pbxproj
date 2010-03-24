@@ -18,6 +18,7 @@
 		9A2677FF1155E47A007799CD /* SyncController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2677FE1155E47A007799CD /* SyncController.m */; };
 		9A26781A1155E6AA007799CD /* Sync.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A2678191155E6AA007799CD /* Sync.xib */; };
 		9A2678561155EFA3007799CD /* DeliciousUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2678551155EFA3007799CD /* DeliciousUser.m */; };
+		9A421B011159BBD70024D673 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 9A421B001159BBD70024D673 /* README */; };
 		9A60429311558A0400C2C9E1 /* DeliciousBarAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A60429211558A0400C2C9E1 /* DeliciousBarAppDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		9A2678191155E6AA007799CD /* Sync.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Sync.xib; sourceTree = "<group>"; };
 		9A2678541155EFA3007799CD /* DeliciousUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliciousUser.h; sourceTree = "<group>"; };
 		9A2678551155EFA3007799CD /* DeliciousUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliciousUser.m; sourceTree = "<group>"; };
+		9A421B001159BBD70024D673 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		9A60429111558A0400C2C9E1 /* DeliciousBarAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliciousBarAppDelegate.h; sourceTree = "<group>"; };
 		9A60429211558A0400C2C9E1 /* DeliciousBarAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliciousBarAppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +107,7 @@
 		29B97314FDCFA39411CA2CEA /* DeliciousBar */ = {
 			isa = PBXGroup;
 			children = (
+				9A421AFF1159BBC30024D673 /* Docs */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -143,6 +146,14 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A421AFF1159BBC30024D673 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				9A421B001159BBD70024D673 /* README */,
+			);
+			name = Docs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +204,7 @@
 				9A2675A11155A790007799CD /* Preferences.xib in Resources */,
 				9A26781A1155E6AA007799CD /* Sync.xib in Resources */,
 				9A1CB9E211585EE60015ADDE /* Bookmarks.xib in Resources */,
+				9A421B011159BBD70024D673 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

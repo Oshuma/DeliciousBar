@@ -17,6 +17,7 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
 @implementation DeliciousUser
 
 @synthesize bookmarks;
+@synthesize tags;
 @synthesize website;
 
 #pragma mark factory
@@ -61,6 +62,7 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
 {
   NSLog(@"DeliciousUser syncBookmarks:");
   [self fetchBookmarks];
+  [self parseTagsFromBookmarks];
   return !!bookmarks;
 }
 
@@ -75,7 +77,8 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
   while (post = [iterator nextObject]) {
     Bookmark *newBookmark = [[Bookmark alloc]
                              initWithTitle:[[post attributeForName:@"description"] stringValue]
-                             andURL:[NSURL URLWithString:[[post attributeForName:@"href"] stringValue]]];
+                             andURL:[NSURL URLWithString:[[post attributeForName:@"href"] stringValue]]
+                             withXmlElement:post];
     [theBookmarks addObject:newBookmark];
     [newBookmark release];
   }
@@ -85,6 +88,29 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
   [iterator release];
   [theBookmarks release];
   [posts release];
+}
+
+- (void)parseTagsFromBookmarks
+{
+  NSLog(@"DeliciousUser parseTagsFromBookmarks:");
+  NSMutableArray *theTags = [NSMutableArray array];
+  NSEnumerator *iterator = [bookmarks objectEnumerator];
+
+  id bookmark;
+  while (bookmark = [iterator nextObject]) {
+    NSArray *tagNames = [[[[bookmark xmlElement] attributeForName:@"tag"]
+                          stringValue] componentsSeparatedByString:@" "];
+
+    for (int i = 0; i < [tagNames count]; i++) {
+      if (![theTags containsObject:[tagNames objectAtIndex:i]]) {
+        [theTags addObject:[tagNames objectAtIndex:i]];
+      }
+    }
+  }
+
+  tags = [theTags sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+  [iterator release];
+  [theTags release];
 }
 
 - (NSArray *)sendRequest:(NSString *)request forElement:(NSString *)theElement

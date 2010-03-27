@@ -14,6 +14,7 @@
 @synthesize title;
 @synthesize url;
 @synthesize tags;
+@synthesize xmlElement;
 
 - (id)initWithTitle:(NSString *)theTitle
 {
@@ -32,6 +33,16 @@
     return nil;
   }
   url = theURL;
+  return self;
+}
+
+- (id)initWithTitle:(NSString *)theTitle andURL:(NSURL *)theURL withXmlElement:(NSXMLElement *)theElement
+{
+  if (![self initWithTitle:theTitle andURL:theURL]) {
+    [self release];
+    return nil;
+  }
+  xmlElement = theElement;
   return self;
 }
 

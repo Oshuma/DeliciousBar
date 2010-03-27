@@ -20,14 +20,17 @@ extern NSString *const DBPasswordPrefKey;
   NSURL    *baseURL;
 
   NSArray *bookmarks;
+  NSArray *tags;
 }
 
 @property (readonly, assign) NSArray *bookmarks;
+@property (readonly, assign) NSArray *tags;
 @property (readonly, assign) NSURL   *website;
 
 - (id)initWithUsername:(NSString *)theUsername andPassword:(NSString *)thePassword;
 - (BOOL)syncBookmarks;
 - (void)fetchBookmarks;
+- (void)parseTagsFromBookmarks;
 - (NSArray *)sendRequest:(NSString *)request forElement:(NSString *)theElement;
 
 @end

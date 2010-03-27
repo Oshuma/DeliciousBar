@@ -58,6 +58,19 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
   return self;
 }
 
+- (void)dealloc
+{
+  [username dealloc];
+  [password dealloc];
+  [website dealloc];
+  [baseURL dealloc];
+  [bookmarks dealloc];
+  [tags dealloc];
+  [super dealloc];
+}
+
+#pragma mark sync methods
+
 - (BOOL)syncBookmarks
 {
   NSLog(@"DeliciousUser syncBookmarks:");
@@ -109,6 +122,7 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
   }
 
   tags = [theTags sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+
   [iterator release];
   [theTags release];
 }

@@ -21,6 +21,12 @@
   return self;
 }
 
+- (void)dealloc
+{
+  [preferences dealloc];
+  [super dealloc];
+}
+
 #pragma mark UI
 
 - (void)windowDidLoad

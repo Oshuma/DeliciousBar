@@ -46,4 +46,12 @@
   return self;
 }
 
+- (void)dealloc
+{
+  [title release];
+  [url release];
+  [xmlElement release];
+  [super dealloc];
+}
+
 @end

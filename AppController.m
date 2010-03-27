@@ -9,6 +9,7 @@
 #import "AppController.h"
 #import "DeliciousUser.h"
 #import "PreferencesController.h"
+#import "SyncController.h"
 
 @implementation AppController
 
@@ -42,13 +43,15 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
   [self loadUserFromPreferences];
+
   if ([preferences boolForKey:DBSyncOnLaunchPrefKey]) {
     if ([user syncBookmarks]) {
-      // update Tags menu
+      [[[SyncController alloc] init] updateTagsMenu];
     } else {
       NSLog(@"Sync on launch failed.");
     }
   }
+
   NSLog(@"App launched.");
 }
 
@@ -78,7 +81,7 @@
 {
   NSLog(@"AppController syncBookmarks:");
   if ([user syncBookmarks]) {
-    // update Tags menu
+    [[[SyncController alloc] init] updateTagsMenu];
   } else {
     // show some error or something.
   }

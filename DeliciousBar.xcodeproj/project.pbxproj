@@ -16,6 +16,8 @@
 		9A55872A115B478600394F27 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A558729115B478600394F27 /* Preferences.xib */; };
 		9A55872E115B490A00394F27 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A55872D115B490A00394F27 /* PreferencesController.m */; };
 		9A558738115B536E00394F27 /* DeliciousUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A558737115B536E00394F27 /* DeliciousUser.m */; };
+		9A938A5E115D8E1300A2F433 /* Sync.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A938A5D115D8E1300A2F433 /* Sync.xib */; };
+		9A938A64115D8F7600A2F433 /* SyncController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A938A63115D8F7600A2F433 /* SyncController.m */; };
 		9AF3747D115D6271002BCC4E /* Bookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3747C115D6271002BCC4E /* Bookmark.m */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,9 @@
 		9A55872D115B490A00394F27 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesController.m; sourceTree = "<group>"; };
 		9A558736115B536E00394F27 /* DeliciousUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliciousUser.h; sourceTree = "<group>"; };
 		9A558737115B536E00394F27 /* DeliciousUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliciousUser.m; sourceTree = "<group>"; };
+		9A938A5D115D8E1300A2F433 /* Sync.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Sync.xib; sourceTree = "<group>"; };
+		9A938A62115D8F7600A2F433 /* SyncController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncController.h; sourceTree = "<group>"; };
+		9A938A63115D8F7600A2F433 /* SyncController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncController.m; sourceTree = "<group>"; };
 		9AF3747B115D6271002BCC4E /* Bookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bookmark.h; sourceTree = "<group>"; };
 		9AF3747C115D6271002BCC4E /* Bookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bookmark.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +70,8 @@
 				9A558737115B536E00394F27 /* DeliciousUser.m */,
 				9AF3747B115D6271002BCC4E /* Bookmark.h */,
 				9AF3747C115D6271002BCC4E /* Bookmark.m */,
+				9A938A62115D8F7600A2F433 /* SyncController.h */,
+				9A938A63115D8F7600A2F433 /* SyncController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -124,6 +131,7 @@
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 				9A558729115B478600394F27 /* Preferences.xib */,
+				9A938A5D115D8E1300A2F433 /* Sync.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -192,6 +200,7 @@
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				9A558706115B026800394F27 /* menuIcon.gif in Resources */,
 				9A55872A115B478600394F27 /* Preferences.xib in Resources */,
+				9A938A5E115D8E1300A2F433 /* Sync.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +216,7 @@
 				9A55872E115B490A00394F27 /* PreferencesController.m in Sources */,
 				9A558738115B536E00394F27 /* DeliciousUser.m in Sources */,
 				9AF3747D115D6271002BCC4E /* Bookmark.m in Sources */,
+				9A938A64115D8F7600A2F433 /* SyncController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

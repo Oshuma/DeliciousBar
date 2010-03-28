@@ -46,16 +46,42 @@
   NSLog(@"SyncController -updateTagsMenu:");
   NSMenu *tagsMenu = [[[[NSApp delegate] mainMenu] itemWithTitle:@"Tags"] submenu];
 
-  NSEnumerator *tagIterator = [[user tags] objectEnumerator];
-  id tag;
-  while (tag = [tagIterator nextObject]) {
-    NSMenuItem *tagSubmenu = [[NSMenuItem alloc]
-                              initWithTitle:tag
-                              action:nil
-                              keyEquivalent:@""];
+  for(int i = 0; i < [[user tags] count]; i++) {
+    NSString *tag = [[user tags] objectAtIndex:i];
+    NSMenuItem *tagItem = [[NSMenuItem alloc]
+                           initWithTitle:tag
+                           action:nil
+                           keyEquivalent:@""];
 
-    [tagsMenu addItem:tagSubmenu];
+    NSMenu *tagSubmenu = [[NSMenu alloc] initWithTitle:tag];
+    NSEnumerator *bookmarkIterator = [[Bookmark taggedWith:tag] objectEnumerator];
+
+    id bookmark;
+    while (bookmark = [bookmarkIterator nextObject]) {
+      NSMenuItem *bookmarkItem = [[NSMenuItem alloc]
+                                  initWithTitle:[bookmark title]
+                                  action:nil
+                                  keyEquivalent:@""];
+
+      [bookmarkItem setTarget:user];
+      [bookmarkItem setAction:@selector(openBookmark:)];
+      [bookmarkItem setRepresentedObject:bookmark];
+      [bookmarkItem setToolTip:[[bookmark url] absoluteString]];
+
+      [tagSubmenu addItem:bookmarkItem];
+      [bookmarkItem release];
+    }
+
+    [tagItem setSubmenu:tagSubmenu];
+    [tagsMenu addItem:tagItem];
+
+    [bookmarkIterator release];
+    [tagSubmenu release];
+    [tagItem release];
+    [tag release];
   }
+
+  [tagsMenu release];
 }
 
 @end

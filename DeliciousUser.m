@@ -145,4 +145,9 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
   return response;
 }
 
+- (IBAction)openBookmark:(NSMenuItem *)menuItem
+{
+  [[NSWorkspace sharedWorkspace] openURL:[[menuItem representedObject] url]];
+}
+
 @end

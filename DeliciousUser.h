@@ -28,9 +28,13 @@ extern NSString *const DBPasswordPrefKey;
 @property (readonly, assign) NSURL   *website;
 
 - (id)initWithUsername:(NSString *)theUsername andPassword:(NSString *)thePassword;
+
 - (BOOL)syncBookmarks;
 - (void)fetchBookmarks;
 - (void)parseTagsFromBookmarks;
+
 - (NSArray *)sendRequest:(NSString *)request forElement:(NSString *)theElement;
+
+- (IBAction)openBookmark:(NSMenuItem *)menuItem;
 
 @end

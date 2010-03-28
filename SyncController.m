@@ -7,6 +7,7 @@
 //
 
 #import "SyncController.h"
+#import "Bookmark.h"
 #import "DeliciousUser.h"
 
 @implementation SyncController
@@ -42,11 +43,18 @@
 
 - (void)updateTagsMenu
 {
-  NSLog(@"SyncController updateTagsMenu:");
+  NSLog(@"SyncController -updateTagsMenu:");
   NSMenu *tagsMenu = [[[[NSApp delegate] mainMenu] itemWithTitle:@"Tags"] submenu];
 
-  for (int i = 0; i < [[user tags] count]; i++) {
-    NSLog(@"TAG: %@", [[user tags] objectAtIndex:i]);
+  NSEnumerator *tagIterator = [[user tags] objectEnumerator];
+  id tag;
+  while (tag = [tagIterator nextObject]) {
+    NSMenuItem *tagSubmenu = [[NSMenuItem alloc]
+                              initWithTitle:tag
+                              action:nil
+                              keyEquivalent:@""];
+
+    [tagsMenu addItem:tagSubmenu];
   }
 }
 

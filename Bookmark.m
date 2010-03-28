@@ -7,7 +7,7 @@
 //
 
 #import "Bookmark.h"
-
+#import "DeliciousUser.h"
 
 @implementation Bookmark
 
@@ -15,6 +15,27 @@
 @synthesize url;
 @synthesize tags;
 @synthesize xmlElement;
+
+#pragma mark factory
+
++ (NSArray *)taggedWith:(NSString *)tagName
+{
+  NSMutableArray *theBookmarks = [[NSMutableArray array] autorelease];
+  DeliciousUser *user = (DeliciousUser *)[[NSApp delegate] user];
+  NSEnumerator *iterator = [[user bookmarks] objectEnumerator];
+
+  id bookmark;
+  while (bookmark = [iterator nextObject]) {
+    NSArray *theTags = [[[[bookmark xmlElement] attributeForName:@"tag"]
+                         stringValue] componentsSeparatedByString:@" "];
+    if ([theTags containsObject:tagName]) [theBookmarks addObject:bookmark];
+    [theTags release];
+  }
+
+  [iterator release];
+  [user release];
+  return [NSArray arrayWithArray:theBookmarks];
+}
 
 - (id)initWithTitle:(NSString *)theTitle
 {

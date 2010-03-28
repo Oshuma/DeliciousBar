@@ -21,6 +21,7 @@
 @property (readwrite, assign) NSArray      *tags;
 @property (readwrite, assign) NSXMLElement *xmlElement;
 
++ (NSArray *)taggedWith:(NSString *)tagName;
 - (id)initWithTitle:(NSString *)theTitle;
 - (id)initWithTitle:(NSString *)theTitle andURL:(NSURL *)theURL;
 - (id)initWithTitle:(NSString *)theTitle andURL:(NSURL *)theURL withXmlElement:(NSXMLElement *)theElement;

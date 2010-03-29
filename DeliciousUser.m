@@ -82,7 +82,7 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
 - (void)fetchBookmarks
 {
   NSLog(@"DeliciousUser -fetchBookmarks:");
-  NSArray *posts = [self sendRequest:@"posts/all" forElement:@"post"];
+  NSArray *posts = [self sendRequest:@"/posts/all" forElement:@"post"];
   NSMutableArray *theBookmarks = [NSMutableArray array];
   NSEnumerator *iterator = [posts objectEnumerator];
 
@@ -129,16 +129,21 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
 
 - (NSArray *)sendRequest:(NSString *)request forElement:(NSString *)theElement
 {
+  if (![request hasPrefix:@"/"]) request = [NSString stringWithFormat:@"/%@", request];
+
   NSError *requestError = nil;
-  NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@", baseURL, request]];
+  NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", baseURL, request]];
 
   NSArray *response = [[[[NSXMLDocument alloc]
                          initWithContentsOfURL:requestURL options:0 error:&requestError]
                         rootElement] elementsForName:theElement];
 
   if (requestError) {
-    // TODO: Proper error handling.
     NSLog(@"\t request error: %@", requestError);
+    NSAlert *alert = [NSAlert alertWithError:requestError];
+    [alert setMessageText:@"Request Error"];
+    [alert setInformativeText:[requestError localizedDescription]];
+    [alert runModal];
     return nil;
   }
 

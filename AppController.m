@@ -43,15 +43,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
   [self loadUserFromPreferences];
-
-  if ([preferences boolForKey:DBSyncOnLaunchPrefKey]) {
-    if ([user syncBookmarks]) {
-      [[[SyncController alloc] init] updateTagsMenu];
-    } else {
-      NSLog(@"Sync on launch failed.");
-    }
-  }
-
+  [self syncOnLaunch];
   NSLog(@"App launched.");
 }
 
@@ -79,12 +71,7 @@
 
 - (IBAction)syncBookmarks:(id)sender
 {
-  NSLog(@"AppController syncBookmarks:");
-  if ([user syncBookmarks]) {
-    [[[SyncController alloc] init] updateTagsMenu];
-  } else {
-    // show some error or something.
-  }
+  [[[SyncController alloc] init] showWindow:sender];
 }
 
 - (IBAction)openWebsite:(id)sender
@@ -94,7 +81,7 @@
 
 - (IBAction)showPreferences:(id)sender
 {
-  [[[PreferencesController alloc] init] showWindow:self];
+  [[[PreferencesController alloc] init] showWindow:sender];
 }
 
 - (IBAction)quitApplication:(id)sender
@@ -106,7 +93,7 @@
 
 - (void)loadUserFromPreferences
 {
-  NSLog(@"AppController loadUserFromPreferences");
+  NSLog(@"AppController -loadUserFromPreferences");
   NSString *username = [preferences stringForKey:DBUserPrefKey];
   NSString *password = [preferences stringForKey:DBPasswordPrefKey];
   if (([username length] != 0) && ([password length] != 0)) {
@@ -117,6 +104,17 @@
     // TODO: Show an alert of why it failed.
     [self showPreferences:self];
     user = nil;
+  }
+}
+
+- (void)syncOnLaunch
+{
+  if ([preferences boolForKey:DBSyncOnLaunchPrefKey]) {
+    if ([user syncBookmarks]) {
+      [[[SyncController alloc] init] updateTagsMenu];
+    } else {
+      NSLog(@"Sync on launch failed.");
+    }
   }
 }
 

@@ -32,5 +32,6 @@
 - (IBAction)quitApplication:(id)sender;
 
 - (void)loadUserFromPreferences;
+- (void)syncOnLaunch;
 
 @end

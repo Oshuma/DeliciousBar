@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class DeliciousUser;
+@class PreferencesController;
 
 @interface AppController : NSObject {
   NSWindow *window;
@@ -18,6 +19,8 @@
 
   NSUserDefaults *preferences;
   DeliciousUser *user;
+
+  PreferencesController *prefsController;
 }
 
 @property (assign) IBOutlet NSWindow *window;

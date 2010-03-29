@@ -11,7 +11,7 @@
 @class DeliciousUser;
 
 @interface BookmarksController : NSWindowController {
-  DeliciousUser *user;
+  NSArray *bookmarks;
 }
 
 @end

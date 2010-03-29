@@ -16,14 +16,20 @@
 - (id)init
 {
   if (![super initWithWindowNibName:@"Bookmarks"]) return nil;
-  user = (DeliciousUser *)[[NSApp delegate] user];
+  bookmarks = [(DeliciousUser *)[[NSApp delegate] user] bookmarks];
   return self;
 }
 
 - (void)dealloc
 {
-  [user release];
+  [bookmarks release];
   [super dealloc];
+}
+
+#pragma mark UI
+
+- (void)windowDidLoad
+{
 }
 
 @end

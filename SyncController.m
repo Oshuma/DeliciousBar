@@ -38,7 +38,7 @@
   if ([user syncBookmarks]) {
     [self updateTagsMenu];
     // TODO: Set timeout until window closes itself.
-    [cancelButton setTitle:@"Finish"];
+    [cancelButton setTitle:@"Done"];
   } else {
     [cancelButton setTitle:@"Failed"];
   }

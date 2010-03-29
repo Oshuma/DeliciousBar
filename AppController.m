@@ -8,6 +8,7 @@
 
 #import "AppController.h"
 #import "DeliciousUser.h"
+#import "BookmarksController.h"
 #import "PreferencesController.h"
 #import "SyncController.h"
 
@@ -66,12 +67,12 @@
 
 - (IBAction)browseBookmarks:(id)sender
 {
-  NSLog(@"browseBookmarks:");
+  [[[BookmarksController alloc] init] showWindow:nil];
 }
 
 - (IBAction)syncBookmarks:(id)sender
 {
-  [[[SyncController alloc] init] showWindow:sender];
+  [[[SyncController alloc] init] showWindow:nil];
 }
 
 - (IBAction)openWebsite:(id)sender
@@ -81,7 +82,12 @@
 
 - (IBAction)showPreferences:(id)sender
 {
-  [[[PreferencesController alloc] init] showWindow:sender];
+  // FIXME: Using this technique doesn't focus the window either.
+  if (!prefsController) {
+    prefsController = [[PreferencesController alloc] init];
+  }
+  [[prefsController window] makeKeyAndOrderFront:nil];
+  [[prefsController window] makeFirstResponder:[[prefsController window] contentView]];
 }
 
 - (IBAction)quitApplication:(id)sender

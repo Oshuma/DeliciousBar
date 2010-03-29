@@ -39,10 +39,11 @@
 				<int key="NSWindowStyleMask">8223</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{544, 589}, {592, 420}}</string>
-				<int key="NSWTFlags">-1543503872</int>
+				<int key="NSWTFlags">603979776</int>
 				<string key="NSWindowTitle">Browse Bookmarks</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>
+				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<object class="NSView" key="NSWindowView" id="1021440318">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>

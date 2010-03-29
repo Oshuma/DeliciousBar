@@ -69,8 +69,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9A938D64116057BE00A2F433 /* BookmarksController.m */,
 				9A938D63116057B400A2F433 /* BookmarksController.h */,
+				9A938D64116057BE00A2F433 /* BookmarksController.m */,
 				9A558700115B00BD00394F27 /* AppController.h */,
 				9A558701115B00BD00394F27 /* AppController.m */,
 				9A55872C115B490A00394F27 /* PreferencesController.h */,

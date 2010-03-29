@@ -16,7 +16,7 @@
 @synthesize tags;
 @synthesize xmlElement;
 
-#pragma mark factory
+#pragma mark class methods
 
 + (NSArray *)taggedWith:(NSString *)tagName
 {
@@ -36,6 +36,8 @@
   [user release];
   return [NSArray arrayWithArray:theBookmarks];
 }
+
+#pragma mark factory
 
 - (id)initWithTitle:(NSString *)theTitle
 {

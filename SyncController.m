@@ -24,8 +24,8 @@
 
 - (void)dealloc
 {
-  [preferences dealloc];
-  [user dealloc];
+  [preferences release];
+  [user release];
   [super dealloc];
 }
 

@@ -60,12 +60,12 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
 
 - (void)dealloc
 {
-  [username dealloc];
-  [password dealloc];
-  [website dealloc];
-  [baseURL dealloc];
-  [bookmarks dealloc];
-  [tags dealloc];
+  [username release];
+  [password release];
+  [website release];
+  [baseURL release];
+  [bookmarks release];
+  [tags release];
   [super dealloc];
 }
 

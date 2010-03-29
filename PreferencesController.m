@@ -23,7 +23,7 @@
 
 - (void)dealloc
 {
-  [preferences dealloc];
+  [preferences release];
   [super dealloc];
 }
 

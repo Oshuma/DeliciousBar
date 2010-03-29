@@ -33,12 +33,21 @@
 
 - (void)windowDidLoad
 {
-  NSLog(@"SyncController windowDidLoad:");
+  [progressBar startAnimation:self];
+  if ([user syncBookmarks]) {
+    [self updateTagsMenu];
+    // TODO: Set timeout until window closes itself.
+    [cancelButton setTitle:@"Finish"];
+  } else {
+    [cancelButton setTitle:@"Failed"];
+  }
+  [progressBar stopAnimation:self];
 }
 
 - (IBAction)cancelOrFinish:(id)sender
 {
-  NSLog(@"SyncController cancelOrFinish:");
+  [progressBar stopAnimation:sender];
+  [self close];
 }
 
 - (void)updateTagsMenu

@@ -73,15 +73,15 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
 
 - (BOOL)syncBookmarks
 {
-  NSLog(@"DeliciousUser syncBookmarks:");
+  NSLog(@"DeliciousUser -syncBookmarks:");
   [self fetchBookmarks];
   [self parseTagsFromBookmarks];
-  return !!bookmarks;
+  return ([bookmarks count] != 0);
 }
 
 - (void)fetchBookmarks
 {
-  NSLog(@"DeliciousUser fetchBookmarks:");
+  NSLog(@"DeliciousUser -fetchBookmarks:");
   NSArray *posts = [self sendRequest:@"posts/all" forElement:@"post"];
   NSMutableArray *theBookmarks = [NSMutableArray array];
   NSEnumerator *iterator = [posts objectEnumerator];
@@ -105,7 +105,7 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
 
 - (void)parseTagsFromBookmarks
 {
-  NSLog(@"DeliciousUser parseTagsFromBookmarks:");
+  NSLog(@"DeliciousUser -parseTagsFromBookmarks:");
   NSMutableArray *theTags = [NSMutableArray array];
   NSEnumerator *iterator = [bookmarks objectEnumerator];
 

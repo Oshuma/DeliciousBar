@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface PreferencesController : NSWindowController {
+  IBOutlet NSWindow    *window;
   NSUserDefaults       *preferences;
   IBOutlet NSTextField *usernameField;
   IBOutlet NSTextField *passwordField;

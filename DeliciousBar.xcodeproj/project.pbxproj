@@ -12,6 +12,7 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		9A0F4AE01168EC2500CDA9DF /* SharedMenubarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0F4ADF1168EC2500CDA9DF /* SharedMenubarController.m */; };
+		9A0F4B781169066C00CDA9DF /* Rakefile in Resources */ = {isa = PBXBuildFile; fileRef = 9A0F4B771169066C00CDA9DF /* Rakefile */; };
 		9A558702115B00BD00394F27 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A558701115B00BD00394F27 /* AppController.m */; };
 		9A558706115B026800394F27 /* menuIcon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9A558705115B026800394F27 /* menuIcon.gif */; };
 		9A55872A115B478600394F27 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A558729115B478600394F27 /* Preferences.xib */; };
@@ -38,6 +39,7 @@
 		8D1107320486CEB800E47090 /* DeliciousBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliciousBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A0F4ADE1168EC2500CDA9DF /* SharedMenubarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedMenubarController.h; sourceTree = "<group>"; };
 		9A0F4ADF1168EC2500CDA9DF /* SharedMenubarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedMenubarController.m; sourceTree = "<group>"; };
+		9A0F4B771169066C00CDA9DF /* Rakefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Rakefile; sourceTree = "<group>"; };
 		9A558700115B00BD00394F27 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		9A558701115B00BD00394F27 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		9A558705115B026800394F27 /* menuIcon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = menuIcon.gif; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				9A0F4B771169066C00CDA9DF /* Rakefile */,
 				32CA4F630368D1EE00C91783 /* DeliciousBar_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 			);
@@ -227,6 +230,7 @@
 				9A938A5E115D8E1300A2F433 /* Sync.xib in Resources */,
 				9A938C4911601E7D00A2F433 /* README in Resources */,
 				9A938D67116057CA00A2F433 /* Bookmarks.xib in Resources */,
+				9A0F4B781169066C00CDA9DF /* Rakefile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

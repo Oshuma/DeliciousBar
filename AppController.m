@@ -82,12 +82,7 @@
 
 - (IBAction)showPreferences:(id)sender
 {
-  // FIXME: Using this technique doesn't focus the window either.
-  if (!prefsController) {
-    prefsController = [[PreferencesController alloc] init];
-  }
-  [[prefsController window] makeKeyAndOrderFront:nil];
-  [[prefsController window] makeFirstResponder:[[prefsController window] contentView]];
+  [[[PreferencesController alloc] init] showWindow:nil];
 }
 
 - (IBAction)quitApplication:(id)sender

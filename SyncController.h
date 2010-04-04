@@ -7,10 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SharedMenubarController.h"
 
 @class DeliciousUser;
 
-@interface SyncController : NSWindowController {
+@interface SyncController : SharedMenubarController {
   NSUserDefaults *preferences;
   DeliciousUser *user;
   IBOutlet NSButton *cancelButton;

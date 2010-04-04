@@ -7,9 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SharedMenubarController.h"
 
-@interface PreferencesController : NSWindowController {
-  IBOutlet NSWindow    *window;
+@interface PreferencesController : SharedMenubarController {
+  NSWindow *window;
+
   NSUserDefaults       *preferences;
   IBOutlet NSTextField *usernameField;
   IBOutlet NSTextField *passwordField;

@@ -11,6 +11,7 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		9A0F4AE01168EC2500CDA9DF /* SharedMenubarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0F4ADF1168EC2500CDA9DF /* SharedMenubarController.m */; };
 		9A558702115B00BD00394F27 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A558701115B00BD00394F27 /* AppController.m */; };
 		9A558706115B026800394F27 /* menuIcon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9A558705115B026800394F27 /* menuIcon.gif */; };
 		9A55872A115B478600394F27 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A558729115B478600394F27 /* Preferences.xib */; };
@@ -35,6 +36,8 @@
 		32CA4F630368D1EE00C91783 /* DeliciousBar_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliciousBar_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* DeliciousBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeliciousBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A0F4ADE1168EC2500CDA9DF /* SharedMenubarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedMenubarController.h; sourceTree = "<group>"; };
+		9A0F4ADF1168EC2500CDA9DF /* SharedMenubarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedMenubarController.m; sourceTree = "<group>"; };
 		9A558700115B00BD00394F27 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		9A558701115B00BD00394F27 /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		9A558705115B026800394F27 /* menuIcon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = menuIcon.gif; sourceTree = "<group>"; };
@@ -81,6 +84,8 @@
 				9AF3747C115D6271002BCC4E /* Bookmark.m */,
 				9A938A62115D8F7600A2F433 /* SyncController.h */,
 				9A938A63115D8F7600A2F433 /* SyncController.m */,
+				9A0F4ADE1168EC2500CDA9DF /* SharedMenubarController.h */,
+				9A0F4ADF1168EC2500CDA9DF /* SharedMenubarController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				9AF3747D115D6271002BCC4E /* Bookmark.m in Sources */,
 				9A938A64115D8F7600A2F433 /* SyncController.m in Sources */,
 				9A938D65116057BE00A2F433 /* BookmarksController.m in Sources */,
+				9A0F4AE01168EC2500CDA9DF /* SharedMenubarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

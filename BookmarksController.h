@@ -7,10 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SharedMenubarController.h"
 
-@class DeliciousUser;
-
-@interface BookmarksController : NSWindowController {
+@interface BookmarksController : SharedMenubarController {
   NSArray *bookmarks;
 }
 

@@ -29,11 +29,6 @@
 
 #pragma mark UI
 
-- (void)awakeFromNib
-{
-  NSLog(@"PreferencesController -awakeFromNib:");
-}
-
 - (void)windowDidLoad
 {
   NSString *username = [preferences objectForKey:DBUserPrefKey];
@@ -41,11 +36,6 @@
   if (username) [usernameField setStringValue:username];
   if (password) [passwordField setStringValue:password];
   [syncOnLaunchCheckbox setState:[preferences boolForKey:DBSyncOnLaunchPrefKey]];
-}
-
-- (void)windowWillClose
-{
-  [self autorelease];
 }
 
 - (IBAction)closeWindow:(id)sender

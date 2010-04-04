@@ -140,9 +140,10 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
 
   if (requestError) {
     NSLog(@"\t request error: %@", requestError);
+    // TODO: Use appropriate icon here.
     NSAlert *alert = [NSAlert alertWithError:requestError];
     [alert setMessageText:@"Request Error"];
-    [alert setInformativeText:[requestError localizedDescription]];
+    [alert setInformativeText:@"There was a problem accessing the remote server."];
     [alert runModal];
     return nil;
   }

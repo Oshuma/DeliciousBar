@@ -127,6 +127,7 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
   [theTags release];
 }
 
+// FIXME: This should be asynchronous and not tie up the UI.
 - (NSArray *)sendRequest:(NSString *)request forElement:(NSString *)theElement
 {
   if ( ! [request hasPrefix:@"/"] ) request = [NSString stringWithFormat:@"/%@", request];

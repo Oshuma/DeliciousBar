@@ -34,7 +34,6 @@
 - (void)windowDidLoad
 {
   [progressBar startAnimation:self];
-  // FIXME: The [user syncBookmarks] call should drop to the background and not tie up the UI.
   if ([user syncBookmarks]) {
     [self updateTagsMenu];
     // TODO: Set timeout until window closes itself.

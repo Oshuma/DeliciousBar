@@ -24,7 +24,7 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
 
 - (id)init
 {
-  if (![super init]) {
+  if ( ! [super init] ) {
     [self release];
     return nil;
   }
@@ -33,12 +33,12 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
 
 - (id)initWithUsername:(NSString *)theUsername andPassword:(NSString *)thePassword
 {
-  if (![self init]) {
+  if ( ! [self init] ) {
     [self release];
     return nil;
   }
 
-  if (([theUsername length] == 0) || ([thePassword length] == 0)) {
+  if ( ([theUsername length] == 0) || ([thePassword length] == 0) ) {
     [self release];
     return nil;
   }
@@ -115,7 +115,7 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
                           stringValue] componentsSeparatedByString:@" "];
 
     for (int i = 0; i < [tagNames count]; i++) {
-      if (![theTags containsObject:[tagNames objectAtIndex:i]]) {
+      if ( ! [theTags containsObject:[tagNames objectAtIndex:i]] ) {
         [theTags addObject:[tagNames objectAtIndex:i]];
       }
     }
@@ -129,7 +129,7 @@ NSString *const DBPasswordPrefKey     = @"DeliciousPassword";
 
 - (NSArray *)sendRequest:(NSString *)request forElement:(NSString *)theElement
 {
-  if (![request hasPrefix:@"/"]) request = [NSString stringWithFormat:@"/%@", request];
+  if ( ! [request hasPrefix:@"/"] ) request = [NSString stringWithFormat:@"/%@", request];
 
   NSError *requestError = nil;
   NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", baseURL, request]];

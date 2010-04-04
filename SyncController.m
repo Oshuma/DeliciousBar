@@ -16,9 +16,9 @@
 
 - (id)init
 {
-  if (![super initWithWindowNibName:@"Sync"]) return nil;
-  if (!preferences) preferences = [NSUserDefaults standardUserDefaults];
-  if (!user) user = (DeliciousUser *)[[NSApp delegate] user];
+  if ( ! [super initWithWindowNibName:@"Sync"] ) return nil;
+  if ( ! preferences ) preferences = [NSUserDefaults standardUserDefaults];
+  if ( ! user ) user = (DeliciousUser *)[[NSApp delegate] user];
   return self;
 }
 

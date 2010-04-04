@@ -28,7 +28,7 @@
   while (bookmark = [iterator nextObject]) {
     NSArray *theTags = [[[[bookmark xmlElement] attributeForName:@"tag"]
                          stringValue] componentsSeparatedByString:@" "];
-    if ([theTags containsObject:tagName]) [theBookmarks addObject:bookmark];
+    if ( [theTags containsObject:tagName] ) [theBookmarks addObject:bookmark];
     [theTags release];
   }
 
@@ -41,7 +41,7 @@
 
 - (id)initWithTitle:(NSString *)theTitle
 {
-  if (![self init]) {
+  if ( ! [self init] ) {
     [self release];
     return nil;
   }
@@ -51,7 +51,7 @@
 
 - (id)initWithTitle:(NSString *)theTitle andURL:(NSURL *)theURL
 {
-  if (![self initWithTitle:theTitle]) {
+  if ( ! [self initWithTitle:theTitle] ) {
     [self release];
     return nil;
   }
@@ -61,7 +61,7 @@
 
 - (id)initWithTitle:(NSString *)theTitle andURL:(NSURL *)theURL withXmlElement:(NSXMLElement *)theElement
 {
-  if (![self initWithTitle:theTitle andURL:theURL]) {
+  if ( ! [self initWithTitle:theTitle andURL:theURL] ) {
     [self release];
     return nil;
   }

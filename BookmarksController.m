@@ -15,7 +15,7 @@
 
 - (id)init
 {
-  if (![super initWithWindowNibName:@"Bookmarks"]) return nil;
+  if ( ! [super initWithWindowNibName:@"Bookmarks"] ) return nil;
   bookmarks = [(DeliciousUser *)[[NSApp delegate] user] bookmarks];
   return self;
 }

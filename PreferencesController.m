@@ -16,8 +16,8 @@
 
 - (id)init
 {
-  if (![super initWithWindowNibName:@"Preferences"]) return nil;
-  if (!preferences) preferences = [NSUserDefaults standardUserDefaults];
+  if ( ! [super initWithWindowNibName:@"Preferences"] ) return nil;
+  if ( ! preferences ) preferences = [NSUserDefaults standardUserDefaults];
   return self;
 }
 

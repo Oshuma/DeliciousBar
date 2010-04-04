@@ -23,12 +23,12 @@
 
 - (id)init
 {
-  if (![super init]) {
+  if ( ! [super init] ) {
     [self release];
     return nil;
   }
 
-  if (!preferences) preferences = [NSUserDefaults standardUserDefaults];
+  if ( ! preferences ) preferences = [NSUserDefaults standardUserDefaults];
   return self;
 }
 
@@ -97,7 +97,7 @@
   NSLog(@"AppController -loadUserFromPreferences");
   NSString *username = [preferences stringForKey:DBUserPrefKey];
   NSString *password = [preferences stringForKey:DBPasswordPrefKey];
-  if (([username length] != 0) && ([password length] != 0)) {
+  if ( ([username length] != 0) && ([password length] != 0) ) {
     user = [[DeliciousUser alloc] initWithUsername:username andPassword:password];
     [username release];
     [password release];
@@ -110,8 +110,8 @@
 
 - (void)syncOnLaunch
 {
-  if ([preferences boolForKey:DBSyncOnLaunchPrefKey]) {
-    if ([user syncBookmarks]) {
+  if ( [preferences boolForKey:DBSyncOnLaunchPrefKey] ) {
+    if ( [user syncBookmarks] ) {
       [[[SyncController alloc] init] updateTagsMenu];
     } else {
       NSLog(@"Sync on launch failed.");

@@ -1179,14 +1179,6 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
-								<object class="NSMenuItem" id="1030574420">
-									<reference key="NSMenu" ref="471900815"/>
-									<string key="NSTitle">Web Site</string>
-									<string key="NSKeyEquiv"/>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="35465992"/>
-									<reference key="NSMixedImage" ref="502551668"/>
-								</object>
 								<object class="NSMenuItem" id="826175949">
 									<reference key="NSMenu" ref="471900815"/>
 									<string key="NSTitle">Preferences</string>
@@ -1753,14 +1745,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">browseBookmarks:</string>
-						<reference key="source" ref="682733839"/>
-						<reference key="destination" ref="54091298"/>
-					</object>
-					<int key="connectionID">467</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">quitApplication:</string>
 						<reference key="source" ref="682733839"/>
 						<reference key="destination" ref="167755316"/>
@@ -1777,14 +1761,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">openWebsite:</string>
-						<reference key="source" ref="682733839"/>
-						<reference key="destination" ref="1030574420"/>
-					</object>
-					<int key="connectionID">470</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">showPreferences:</string>
 						<reference key="source" ref="682733839"/>
 						<reference key="destination" ref="826175949"/>
@@ -1798,6 +1774,14 @@
 						<reference key="destination" ref="682733839"/>
 					</object>
 					<int key="connectionID">472</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">browseBookmarks:</string>
+						<reference key="source" ref="682733839"/>
+						<reference key="destination" ref="54091298"/>
+					</object>
+					<int key="connectionID">474</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2737,7 +2721,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="24961826"/>
 							<reference ref="241513507"/>
-							<reference ref="1030574420"/>
 							<reference ref="826175949"/>
 						</object>
 						<reference key="parent" ref="921571838"/>
@@ -2750,11 +2733,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">461</int>
 						<reference key="object" ref="241513507"/>
-						<reference key="parent" ref="471900815"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">462</int>
-						<reference key="object" ref="1030574420"/>
 						<reference key="parent" ref="471900815"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -2975,7 +2953,6 @@
 					<string>459.IBPluginDependency</string>
 					<string>460.IBPluginDependency</string>
 					<string>461.IBPluginDependency</string>
-					<string>462.IBPluginDependency</string>
 					<string>463.IBPluginDependency</string>
 					<string>464.IBPluginDependency</string>
 					<string>465.IBPluginDependency</string>
@@ -3219,7 +3196,6 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
@@ -3277,7 +3253,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">473</int>
+			<int key="maxID">474</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3290,14 +3266,12 @@
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>browseBookmarks:</string>
-							<string>openWebsite:</string>
 							<string>quitApplication:</string>
 							<string>showPreferences:</string>
 							<string>syncBookmarks:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>

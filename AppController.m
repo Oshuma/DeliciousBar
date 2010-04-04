@@ -8,7 +8,6 @@
 
 #import "AppController.h"
 #import "DeliciousUser.h"
-#import "BookmarksController.h"
 #import "PreferencesController.h"
 #import "SyncController.h"
 
@@ -65,24 +64,19 @@
   [mainMenuItem setImage:[[NSImage alloc] initWithContentsOfFile:icon]];
 }
 
-- (IBAction)browseBookmarks:(id)sender
-{
-  [[[BookmarksController alloc] init] showWindow:nil];
-}
-
 - (IBAction)syncBookmarks:(id)sender
 {
   [[[SyncController alloc] init] showWindow:nil];
 }
 
-- (IBAction)openWebsite:(id)sender
-{
-  [[NSWorkspace sharedWorkspace] openURL:[user website]];
-}
-
 - (IBAction)showPreferences:(id)sender
 {
   [[[PreferencesController alloc] init] showWindow:nil];
+}
+
+- (IBAction)browseBookmarks:(id)sender
+{
+  [[NSWorkspace sharedWorkspace] openURL:[user website]];
 }
 
 - (IBAction)quitApplication:(id)sender

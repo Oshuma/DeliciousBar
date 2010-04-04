@@ -28,10 +28,9 @@
 @property (readwrite, assign) NSUserDefaults *preferences;
 @property (readwrite, assign) DeliciousUser *user;
 
-- (IBAction)browseBookmarks:(id)sender;
 - (IBAction)syncBookmarks:(id)sender;
-- (IBAction)openWebsite:(id)sender;
 - (IBAction)showPreferences:(id)sender;
+- (IBAction)browseBookmarks:(id)sender;
 - (IBAction)quitApplication:(id)sender;
 
 - (void)loadUserFromPreferences;

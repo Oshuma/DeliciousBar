@@ -25,8 +25,6 @@
 		9A938A5E115D8E1300A2F433 /* Sync.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A938A5D115D8E1300A2F433 /* Sync.xib */; };
 		9A938A64115D8F7600A2F433 /* SyncController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A938A63115D8F7600A2F433 /* SyncController.m */; };
 		9A938C4911601E7D00A2F433 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 9A938C4811601E7D00A2F433 /* README */; };
-		9A938D65116057BE00A2F433 /* BookmarksController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A938D64116057BE00A2F433 /* BookmarksController.m */; };
-		9A938D67116057CA00A2F433 /* Bookmarks.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A938D66116057CA00A2F433 /* Bookmarks.xib */; };
 		9AF3747D115D6271002BCC4E /* Bookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3747C115D6271002BCC4E /* Bookmark.m */; };
 /* End PBXBuildFile section */
 
@@ -60,9 +58,6 @@
 		9A938A62115D8F7600A2F433 /* SyncController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncController.h; sourceTree = "<group>"; };
 		9A938A63115D8F7600A2F433 /* SyncController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncController.m; sourceTree = "<group>"; };
 		9A938C4811601E7D00A2F433 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
-		9A938D63116057B400A2F433 /* BookmarksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarksController.h; sourceTree = "<group>"; };
-		9A938D64116057BE00A2F433 /* BookmarksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarksController.m; sourceTree = "<group>"; };
-		9A938D66116057CA00A2F433 /* Bookmarks.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Bookmarks.xib; sourceTree = "<group>"; };
 		9AF3747B115D6271002BCC4E /* Bookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bookmark.h; sourceTree = "<group>"; };
 		9AF3747C115D6271002BCC4E /* Bookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bookmark.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,8 +77,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				9A938D63116057B400A2F433 /* BookmarksController.h */,
-				9A938D64116057BE00A2F433 /* BookmarksController.m */,
 				9A558700115B00BD00394F27 /* AppController.h */,
 				9A558701115B00BD00394F27 /* AppController.m */,
 				9A55872C115B490A00394F27 /* PreferencesController.h */,
@@ -154,7 +147,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9A938D66116057CA00A2F433 /* Bookmarks.xib */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -257,7 +249,6 @@
 				9A55872A115B478600394F27 /* Preferences.xib in Resources */,
 				9A938A5E115D8E1300A2F433 /* Sync.xib in Resources */,
 				9A938C4911601E7D00A2F433 /* README in Resources */,
-				9A938D67116057CA00A2F433 /* Bookmarks.xib in Resources */,
 				9A0F4B781169066C00CDA9DF /* Rakefile in Resources */,
 				9A0F4B9711690BB600CDA9DF /* server.rb in Resources */,
 				9A0F4B9C11690BDB00CDA9DF /* posts_all.xml in Resources */,
@@ -279,7 +270,6 @@
 				9A558738115B536E00394F27 /* DeliciousUser.m in Sources */,
 				9AF3747D115D6271002BCC4E /* Bookmark.m in Sources */,
 				9A938A64115D8F7600A2F433 /* SyncController.m in Sources */,
-				9A938D65116057BE00A2F433 /* BookmarksController.m in Sources */,
 				9A0F4AE01168EC2500CDA9DF /* SharedMenubarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
